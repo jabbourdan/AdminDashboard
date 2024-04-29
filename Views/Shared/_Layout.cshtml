@@ -1,0 +1,80 @@
+@{
+    var theme = Context.Request.Cookies["Theme"] ?? "light";
+    var isChecked = theme == "dark" ? "checked" : "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>@ViewBag.Title</title>
+</head>
+
+<body class="@(Context.Request.Cookies["Theme"] ?? "light")">
+    <!-- Sidebar-->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name">
+                <span>
+                    DashAdmin
+                </span>
+            </div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="#"><i class='bx bx-home'></i>Home</a></li>
+            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-time-five'></i>Schedule</a></li>
+            <li><a href="#"><i class='bx bx-task'></i>Tasks</a></li>
+            <li><a href="#"><i class='bx bx-store'></i>Schedule</a></li>
+            <li><a href="#"><i class='bx bxs-report'></i>Reports</a></li>
+            <li><a href="#"><i class='bx bx-user'></i>Members</a></li>
+            <li><a href="#"><i class='bx bx-store-alt'></i></i>Shop</a></li>
+            <li><a href="#"><i class='bx bx-chat'></i>Communication</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End Sidebar-->
+
+    <!--Main Content-->
+    <div class="content">
+        <!-- Navabar -->
+        <nav>
+            <i class='bx bx-menu-alt-left'></i>
+
+            <input type="checkbox" id="theme-toggle" hidden @isChecked>
+            <label for="theme-toggle" class="theme-toggle"></label>
+
+            <a href="#" class="notif">
+                <i class='bx bxs-bell-ring'></i>
+                <span class="count">12</span>
+
+            </a>
+            <a href="#" class="profile">
+                <img src="/Images/avatar.png">
+            </a>
+            <!-- End Navabar -->
+        </nav>
+        <!-- Body -->
+        <main>
+            @RenderBody();
+        </main>
+
+    </div>
+    <!--End Main Content-->
+    <script src="~/js/index.js"></script>
+</body>
+
+</html>
