@@ -50,7 +50,10 @@ body{
     overflow-x: hidden;
 }
 
-.sidebar{
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns menu at the top and logout at the bottom */
     position: fixed;
     top: 0;
     left: 0;
@@ -61,6 +64,10 @@ body{
     overflow-x: hidden;
     scrollbar-width: none;
     transition: all 0.3s ease;
+}
+
+.sidebar .menu-items {
+    flex-grow: 1;
 }
 
 .sidebar::-webkit-scrollbar{
@@ -99,10 +106,11 @@ body{
     margin-top: 7px;
 }
 
-.sidebar .side-menu li{
+.sidebar .side-menu li {
     height: 48px;
     background: transparent;
     margin-left: 6px;
+    margin-bottom: 20px;
     border-radius: 48px 0 0 48px;
     padding: 4px;
 }

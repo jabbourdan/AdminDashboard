@@ -26,3 +26,4 @@ C:\Users\jabbour.dandan\OneDrive - AU10TIX\Desktop\UI-USM-MVC\obj\Debug\net8.0\r
 C:\Users\jabbour.dandan\OneDrive - AU10TIX\Desktop\UI-USM-MVC\obj\Debug\net8.0\UI-USM-MVC.pdb
 C:\Users\jabbour.dandan\OneDrive - AU10TIX\Desktop\UI-USM-MVC\obj\Debug\net8.0\UI-USM-MVC.genruntimeconfig.cache
 C:\Users\jabbour.dandan\OneDrive - AU10TIX\Desktop\UI-USM-MVC\obj\Debug\net8.0\ref\UI-USM-MVC.dll
+C:\Users\jabbour.dandan\OneDrive - AU10TIX\Desktop\UI-USM-MVC\obj\Debug\net8.0\UI-USM-MVC.sourcelink.json

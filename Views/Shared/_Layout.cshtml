@@ -19,33 +19,27 @@
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
-            <div class="logo-name">
-                <span>
-                    DashAdmin
-                </span>
-            </div>
+            <div class="logo-name"><span>DashAdmin</span></div>
         </a>
-        <ul class="side-menu">
-            <li><a href="#"><i class='bx bx-home'></i>Home</a></li>
-            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="#"><i class='bx bx-time-five'></i>Schedule</a></li>
-            <li><a href="#"><i class='bx bx-task'></i>Tasks</a></li>
-            <li><a href="#"><i class='bx bx-store'></i>Schedule</a></li>
-            <li><a href="#"><i class='bx bxs-report'></i>Reports</a></li>
-            <li><a href="#"><i class='bx bx-user'></i>Members</a></li>
-            <li><a href="#"><i class='bx bx-store-alt'></i></i>Shop</a></li>
-            <li><a href="#"><i class='bx bx-chat'></i>Communication</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#" class="logout">
-                    <i class='bx bx-log-out'></i>
-                    Logout
-                </a>
-            </li>
+        <div class="menu-items">
+            <ul class="side-menu">
+                <li><a asp-controller="Home" asp-action="Index"><i class='bx bx-home'></i>Home</a></li>
+                <li><a asp-controller="Dashboard" asp-action="Index"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+                <li><a asp-controller="Schedule" asp-action="Index"><i class='bx bx-time-five'></i>Schedule</a></li>
+                <li><a asp-controller="Tasks" asp-action="Index"><i class='bx bx-task'></i>Tasks</a></li>
+                <li><a asp-controller="Store" asp-action="Index"><i class='bx bx-store'></i>Store</a></li>
+                <li><a asp-controller="Reports" asp-action="Index"><i class='bx bxs-report'></i>Reports</a></li>
+                <li><a asp-controller="Members" asp-action="Index"><i class='bx bx-user'></i>Members</a></li>
+                <li><a asp-controller="Communication" asp-action="Index"><i class='bx bx-chat'></i>Communication</a>
+                </li>
+                <li><a asp-controller="Settings" asp-action="Index"><i class='bx bx-cog'></i>Settings</a></li>
+            </ul>
+        </div>
+        <ul class="side-menu logout-menu">
+            <li><a href="#" class="logout"><i class='bx bx-log-out'></i>Logout</a></li>
         </ul>
     </div>
+
     <!-- End Sidebar-->
 
     <!--Main Content-->
