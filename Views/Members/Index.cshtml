@@ -3,12 +3,199 @@
     ViewBag.Title = "Member";
 }
 
+@section Styles {
+    <link href="~/css/Members.css" rel="stylesheet" />
+}
+
 <main>
     <div class="header">
         <div class="left">
-            <h1>Member</h1>
+            <h1>Members</h1>
+            <div></div><button id="create-user-button" class="create-user-button">Create New User</button>
         </div>
     </div>
-    <!-- Insights -->
+    <div class="table" id="customers_table">
+        <section class="table__header">
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+            </div>
+            <div class="export__file">
+                <label for="export-file" class="export__file-btn" title="Export File"></label>
+                <input type="checkbox" id="export-file">
+                <div class="export__file-options">
+                    <label>Export As &nbsp; &#10140;</label>
+                    <label for="export-file" id="toPDF">PDF <img src="/Photos/Members/pdf.png" alt=""></label>
+                    <label for="export-file" id="toJSON">JSON <img src="/Photos/Members/json.png" alt=""></label>
+                    <label for="export-file" id="toCSV">CSV <img src="/Photos/Members/csv.png" alt=""></label>
+                    <label for="export-file" id="toEXCEL">EXCEL <img src="/Photos/Members/excel.png" alt=""></label>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Id<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Customer Name<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Date Joined<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Total Paied<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Number of visits<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> status<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> 1 </td>
+                        <td> Zinzu Chan Lee</td>
+                        <td> 17 Dec, 2022 </td>
+                        <td> <strong> $128.90 </strong></td>
+                        <td> 10 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
 
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 2 </td>
+                        <td> Jeet Saru </td>
+                        <td> 27 Aug, 2023 </td>
+                        <td> <strong>$5350.50</strong> </td>
+                        <td> 102 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 3</td>
+                        <td> Sonal Gharti </td>
+                        <td> 14 Mar, 2023 </td>
+                        <td> <strong>$5350.50</strong> </td>
+                        <td> 102 </td>
+                        <td>
+                            <p class="status shipped">Shipped</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 4</td>
+                        <td> Alson GC </td>
+                        <td> 25 May, 2023 </td>
+                        <td> <strong>$5350.50</strong> </td>
+                        <td> 102 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 5</td>
+                        <td> Sarita Limbu </td>
+                        <td> 23 Apr, 2023 </td>
+                        <td> <strong>$578</strong> </td>
+                        <td> 44 </td>
+                        <td>
+                            <p class="status pending">Pending</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 6</td>
+                        <td> Alex Gonley </td>
+                        <td> 23 Apr, 2023 </td>
+                        <td> <strong>$22</strong> </td>
+                        <td> 57 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 7</td>
+                        <td> Jeet Saru </td>
+                        <td> 20 May, 2023 </td>
+                        <td> <strong>$33</strong> </td>
+                        <td> 1 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 8</td>
+                        <td> Aayat Ali Khan </td>
+                        <td> 30 Feb, 2023 </td>
+                        <td> <strong>$987.50</strong> </td>
+                        <td> 77 </td>
+                        <td>
+                            <p class="status pending">Pending</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 9</td>
+                        <td> Alson GC </td>
+                        <td> 22 Dec, 2023 </td>
+                        <td> <strong>$98</strong> </td>
+                        <td> 55 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 9</td>
+                        <td> Alson GC </td>
+                        <td> 22 Dec, 2023 </td>
+                        <td> <strong>$2</strong> </td>
+                        <td> 16 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 9</td>
+                        <td> Alson GC </td>
+                        <td> 22 Dec, 2023 </td>
+                        <td> <strong>$10</strong> </td>
+                        <td> 12 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 9</td>
+                        <td> Alson GC </td>
+                        <td> 22 Dec, 2023 </td>
+                        <td> <strong>$50.50</strong> </td>
+                        <td> 12 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> 9</td>
+                        <td> Alson GC </td>
+                        <td> 22 Dec, 2023 </td>
+                        <td> <strong>$5350.50</strong> </td>
+                        <td> 152 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
 </main>
+
+@section Scripts {
+    <script src="~/js/Members.js"></script>
+}
