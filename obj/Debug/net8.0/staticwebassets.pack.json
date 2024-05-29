@@ -1,12 +1,48 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\csv.png",
+      "PackagePath": "staticwebassets\\Photos\\Members\\csv.png"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\excel.png",
+      "PackagePath": "staticwebassets\\Photos\\Members\\excel.png"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\export.png",
+      "PackagePath": "staticwebassets\\Photos\\Members\\export.png"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\json.png",
+      "PackagePath": "staticwebassets\\Photos\\Members\\json.png"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\pdf.png",
+      "PackagePath": "staticwebassets\\Photos\\Members\\pdf.png"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
+      "PackagePath": "staticwebassets\\css\\Members.css"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Tasks.css",
+      "PackagePath": "staticwebassets\\css\\Tasks.css"
+    },
+    {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Members.js",
+      "PackagePath": "staticwebassets\\js\\Members.js"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Tasks.js",
+      "PackagePath": "staticwebassets\\js\\Tasks.js"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\index.js",

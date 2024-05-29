@@ -115,6 +115,52 @@ body{
     padding: 4px;
 }
 
+
+/* Dropdown Styles */
+.sidebar .menu-items .side-menu .dropdown-btn {
+    display: flex;
+    height: 48px;
+    background: transparent;
+    margin: 6px;
+    margin-bottom: 10px;
+    border-radius: 48px 0 0 48px;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--dark);
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.fa-caret-down {
+    margin-left: auto;
+    padding-right: 8px;
+}
+
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+}
+
+.sidebar .dropdown-container .crew-text,
+.sidebar .dropdown-container .clients-text {
+    padding-left: 30px;
+    width: 100%; 
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.close .menu-text,
+.sidebar.close .dropdown-btn .menu-text {
+    display: none;
+}
+
+.dropdown-container.active {
+    display: block !important;
+}
+
+/*End of drop down*/
+
 .sidebar .side-menu li.active{
     background: var(--grey);
     position: relative;
@@ -288,7 +334,7 @@ body{
 
 .content main{
     width: 100%;
-    padding: 36px 24px;
+    padding: 3px 5px;
     max-height: calc(100vh - 56px);
 }
 
@@ -301,7 +347,7 @@ body{
 }
 
 .content main .header .left h1{
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--dark);
@@ -580,3 +626,5 @@ body{
     }
 
 }
+
+

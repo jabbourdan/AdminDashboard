@@ -1,0 +1,273 @@
+.project {
+    flex: 1;
+    padding: 20px;
+}
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-participants {
+    display: flex;
+    align-items: center;
+}
+.project-participants span {
+    width: 30px;
+    height: 30px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: inline-block;
+    line-height: 35px; /* This will help center any text vertically */
+    text-align: center; /* This will help center any text horizontally */
+}
+
+.arrow span{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: inline-block;
+    line-height: 27px; /* This will help center any text vertically */
+    text-align: center;
+}
+.project-participants__add {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.project-tasks {
+    display: flex;
+    margin-top: 20px;
+}
+.project-column {
+    flex: 1;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 15px;
+}
+.project-column:last-child {
+    margin-right: 0;
+}
+.project-column-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.project-column-heading__title {
+    font-size: 18px;
+    margin: 0;
+}
+.project-column-heading__options {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.task {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.task__tags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.task__tag {
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.task__tag--copyright {
+    background-color: #ffeb3b;
+}
+.task__tag--design {
+    background-color: #03a9f4;
+}
+.task__tag--illustration {
+    background-color: #4caf50;
+}
+.task__options {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.task__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #777;
+}
+.task__owner {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+.task-details {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+.task-details h2 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+.tag-progress p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.progress {
+    width: 100%;
+    height: 8px;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress--copyright {
+    background-color: #ffeb3b;
+}
+.progress--illustration {
+    background-color: #4caf50;
+}
+.progress--design {
+    background-color: #03a9f4;
+}
+.task-activity ul {
+    list-style-type: none;
+    padding: 0;
+}
+.task-activity li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.task-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.task-icon--attachment {
+    background-color: #f4f4f4;
+}
+.task-icon--comment {
+    background-color: #f4f4f4;
+}
+.task-icon--edit {
+    background-color: #f4f4f4;
+}
+
+
+/* Option of the dots*/
+.task__tags {
+    position: relative; /* Ensure the actions menu is positioned relative to the task */
+}
+
+.task__actions {
+    display: none;
+    position: absolute;
+    top: 20px; /* Adjust based on your layout */
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.task__options {
+    cursor: pointer;
+}
+
+h2{
+    color: var(--dark);
+}
+
+.task__actions button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.task__actions button:hover {
+    background-color: #f0f0f0;
+}
+
+/* End of the options*/
+
+/* Picker */
+
+.ant-picker {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 4px;
+    width: 400px;
+    background-color: #fff;
+    position: relative;
+}
+
+.ant-picker-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+}
+
+.ant-picker-input input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.ant-picker-suffix, .ant-picker-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.ant-picker-suffix:hover, .ant-picker-clear:hover {
+    color: #40a9ff;
+}
+
+.ant-picker-active-bar {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #40a9ff;
+    transition: left 0.3s, width 0.3s;
+}
+
+/* End of the Picker dates*/

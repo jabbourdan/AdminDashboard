@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UI-USM-MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06ff2c09de62d75f9be2f352f9f8c8fb173cafa4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa1063ddee9d49982125bd2892905b6b74600369")]
 [assembly: System.Reflection.AssemblyProductAttribute("UI-USM-MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UI-USM-MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

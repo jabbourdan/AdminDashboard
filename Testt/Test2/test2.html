@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class='app'>
+        <main class='project'>
+            <div class='project-info'>
+                <h1>Homepage Design</h1>
+                <div class='project-participants'>
+                    <div class="filter-tasks">
+                        <button id="filter-tasks-btn">Filter Tasks</button>
+                        <div id="datepicker-container">
+                            <input type="text" id="datepicker" placeholder="Select date range">
+                        </div>
+                    </div>
+                    <button class='project-participants__add'>Add Task</button>
+                </div>
+            </div>
+            <!-- Project tasks sections go here -->
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
