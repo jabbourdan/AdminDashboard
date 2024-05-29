@@ -32,8 +32,18 @@
                             class="menu-text">Schedule</span></a></li>
                 <li><a asp-controller="Tasks" asp-action="Index"><i class='bx bx-task'></i><span
                             class="menu-text">Tasks</span></a></li>
-                <li><a asp-controller="Store" asp-action="Index"><i class='bx bx-store'></i><span
-                            class="menu-text">Store</span></a></li>
+                <button class="dropdown-btn"><i class="bx bx-user"></i><span class="menu-text">Invetory</span>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <li><a asp-controller="Stock" asp-action="Index"></i><span class="crew-text">Stock</span></a>
+                    </li>
+                    <li><a asp-controller="StoreItems" asp-action="Index"></i><span class="clients-text">Store
+                                Items</span></a>
+                    </li>
+                    <li><a asp-controller="Orders" asp-action="Index"></i><span class="clients-text">Orders</span></a>
+                    </li>
+                </div>
                 <li><a asp-controller="Reports" asp-action="Index"><i class='bx bxs-report'></i><span
                             class="menu-text">Reports</span></a></li>
 

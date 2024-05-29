@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-public class StoreController : Controller
+public class OrdersController : Controller
 {
     public IActionResult Index()
     {

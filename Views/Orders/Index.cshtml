@@ -1,0 +1,94 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Orders";
+}
+
+@section Styles {
+    <link href="~/css/Members.css" rel="stylesheet" />
+
+}
+
+<main>
+    <div class="header">
+        <div class="left">
+            <h1>Orders</h1>
+            <div></div><button id="create-user-button" class="create-user-button">Create New Order</button>
+        </div>
+    </div>
+    <div class="table" id="customers_table">
+        <section class="table__header">
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+            </div>
+            <div class="export__file">
+                <label for="export-file" class="export__file-btn" title="Export File"></label>
+                <input type="checkbox" id="export-file">
+                <div class="export__file-options">
+                    <label>Export As &nbsp; &#10140;</label>
+                    <label for="export-file" id="toPDF">PDF <img src="/Photos/Members/pdf.png" alt=""></label>
+                    <label for="export-file" id="toJSON">JSON <img src="/Photos/Members/json.png" alt=""></label>
+                    <label for="export-file" id="toCSV">CSV <img src="/Photos/Members/csv.png" alt=""></label>
+                    <label for="export-file" id="toEXCEL">EXCEL <img src="/Photos/Members/excel.png" alt=""></label>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Id<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Product Name<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Client Name<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Date Ordered<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Quantity<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Total Amount<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Status<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Product A</td>
+                        <td>Zinzu Chan Lee</td>
+                        <td>17 Dec, 2022</td>
+                        <td>10</td>
+                        <td>$100.00</td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Product B</td>
+                        <td>Jeet Saru</td>
+                        <td>27 Aug, 2023</td>
+                        <td>5</td>
+                        <td>$50.00</td>
+                        <td>
+                            <p class="status paid">Paid</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Product C</td>
+                        <td>Sonal Gharti</td>
+                        <td>14 Mar, 2023</td>
+                        <td>8</td>
+                        <td>$80.00</td>
+                        <td>
+                            <p class="status shipped">Shipped</p>
+                        </td>
+                        <td class="edit-column"><a href="#"><i class='bx bxs-edit'></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/js/Members.js"></script>
+}
