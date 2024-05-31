@@ -335,7 +335,7 @@ body{
 .content main{
     width: 100%;
     padding: 3px 5px;
-    max-height: calc(100vh - 56px);
+    max-height: 100%;
 }
 
 .content main .header{

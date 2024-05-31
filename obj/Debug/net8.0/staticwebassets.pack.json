@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Inventory\\Stock\\machine.jpeg",
+      "PackagePath": "staticwebassets\\Photos\\Inventory\\Stock\\machine.jpeg"
+    },
+    {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\csv.png",
       "PackagePath": "staticwebassets\\Photos\\Members\\csv.png"
     },
@@ -21,8 +25,16 @@
       "PackagePath": "staticwebassets\\Photos\\Members\\pdf.png"
     },
     {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Comunication.css",
+      "PackagePath": "staticwebassets\\css\\Comunication.css"
+    },
+    {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
       "PackagePath": "staticwebassets\\css\\Members.css"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Stock.css",
+      "PackagePath": "staticwebassets\\css\\Stock.css"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Tasks.css",
@@ -39,6 +51,10 @@
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Members.js",
       "PackagePath": "staticwebassets\\js\\Members.js"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Stock.js",
+      "PackagePath": "staticwebassets\\js\\Stock.js"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Tasks.js",

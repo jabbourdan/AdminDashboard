@@ -3,12 +3,67 @@
     ViewBag.Title = "Communication";
 }
 
+@section Styles {
+    <link href="~/css/Communication.css" rel="stylesheet" />
+}
 <main>
     <div class="header">
         <div class="left">
             <h1>Communication</h1>
         </div>
     </div>
-    <!-- Insights -->
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form>
+                <h1>SMS</h1>
+                <p>You can send a message or create a campaign with SMS messages</p>
+                <button>New SMS session</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>What's App</h1>
+                    <p>You can send a message or create a campaign with WhatsApp messages</p>
+                    <button class="hidden" id="register">New WhatsApp session</button>
+
+                    <!-- Table for displaying created sessions -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="table-container">
+        <h2>Created Sessions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Session ID</th>
+                    <th>Session Type</th>
+                    <th>Date Created</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>WhatsApp</td>
+                    <td>2024-05-30</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SMS</td>
+                    <td>2024-06-01</td>
+                    <td>Completed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </main>
+
+@section Scripts {
+    <script src="~/js/Comunication.js"></script>
+}

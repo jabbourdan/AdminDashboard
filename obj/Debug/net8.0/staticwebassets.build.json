@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PcT4M1cu0JBmno9IcvH8wghUHC0VtBpJgmkIkrdUZ3Q=",
+  "Hash": "+YHgd/NonD9CtMPhRWWoUPcZHHNGVgTXBr+cUepBNAs=",
   "Source": "UI-USM-MVC",
   "BasePath": "_content/UI-USM-MVC",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Comunication.css",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "css/Comunication.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Comunication.css"
+    },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
       "SourceId": "UI-USM-MVC",
@@ -34,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Members.css"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Stock.css",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "css/Stock.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Stock.css"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\style.css",
@@ -129,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Members.js"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Stock.js",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "js/Stock.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Stock.js"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Tasks.js",
@@ -1231,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Inventory\\Stock\\machine.jpeg",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "Photos/Inventory/Stock/machine.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photos\\Inventory\\Stock\\machine.jpeg"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\Photos\\Members\\csv.png",
