@@ -25,8 +25,12 @@
       "PackagePath": "staticwebassets\\Photos\\Members\\pdf.png"
     },
     {
-      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Comunication.css",
-      "PackagePath": "staticwebassets\\css\\Comunication.css"
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Communication.css",
+      "PackagePath": "staticwebassets\\css\\Communication.css"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
@@ -47,6 +51,10 @@
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Communication.js",
+      "PackagePath": "staticwebassets\\js\\Communication.js"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Members.js",

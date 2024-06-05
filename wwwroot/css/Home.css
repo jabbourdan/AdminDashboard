@@ -1,0 +1,29 @@
+.hover-effect:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    position: relative;
+}
+
+.welcome,
+.actions {
+    position: relative;
+}
+
+.announcements {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+}
+
+.color-home{
+    color: var(--dark);
+}
+
+.color-home-light{
+    color: var(--white);
+}

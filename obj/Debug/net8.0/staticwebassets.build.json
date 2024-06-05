@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+YHgd/NonD9CtMPhRWWoUPcZHHNGVgTXBr+cUepBNAs=",
+  "Hash": "tnDUnp/EfdbDN6k4UlDuTLNAb6HXWwyyI0zdAklJBB8=",
   "Source": "UI-USM-MVC",
   "BasePath": "_content/UI-USM-MVC",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Comunication.css",
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Communication.css",
       "SourceId": "UI-USM-MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
       "BasePath": "_content/UI-USM-MVC",
-      "RelativePath": "css/Comunication.css",
+      "RelativePath": "css/Communication.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,7 +33,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Comunication.css"
+      "OriginalItemSpec": "wwwroot\\css\\Communication.css"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Home.css",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "css/Home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Home.css"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Communication.js",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "js/Communication.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Communication.js"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\index.js",

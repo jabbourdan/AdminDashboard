@@ -200,7 +200,7 @@
 
 .table-container h2 {
     margin-bottom: 10px;
-    color: #512da8;
+    color: var(--dark);
 }
 
 .table-container table {
@@ -215,10 +215,9 @@
 }
 
 .table-container th {
-    background-color: #f4f4f4;
-    color: #333;
+    color: var(--dark);
 }
 
-.table-container tr:nth-child(even) {
-    background-color: #f9f9f9;
+.table-container tr {
+    color: var(--dark);
 }

@@ -3,12 +3,204 @@
     ViewBag.Title = "Home";
 }
 
-<main>
-    <div class="header">
-        <div class="left">
-            <h1>Home</h1>
-        </div>
-    </div>
-    <!-- Insights -->
+@section Styles {
+    <link href="~/CSS/Home.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+}
 
+<main>
+    <div class="container mx-auto p-6 bg-custom">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold color-home">Good Evening, Jorda</h1>
+        </div>
+        <div class="flex flex-col lg:flex-row justify-between">
+            <section class="welcome w-full lg:w-1/2 mb-6 lg:mb-0">
+                <div class="welcome-content">
+                    <h2 class="text-2xl font-semibold text-custom mb-4">Shifts Owners Today</h2>
+                    <div
+                        class="bg-gradient-to-r from-blue-200 to-purple-300 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:z-10 mb-6 hover-effect">
+                        <ul class="list-disc pl-5 text-custom text-lg space-y-3">
+                            <li class="flex justify-between items-center">
+                                <span>John Doe</span>
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-full shadow-md">9:00 AM to 5:00
+                                    PM</span>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span>Jane Smith</span>
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-full shadow-md">10:00 AM to 6:00
+                                    PM</span>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span>Emily Davis</span>
+                                <span class="bg-purple-500 text-white px-3 py-1 rounded-full shadow-md">11:00 AM to 7:00
+                                    PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-custom mb-4">Announcements</h2>
+                    <div
+                        class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:z-10 hover-effect announcements">
+                        <ul class="list-disc pl-5 text-custom space-y-3">
+                            <li>New staff training on Friday at 3 PM</li>
+                            <li>Maintenance scheduled for Saturday at 1 PM</li>
+                            <li>Holiday party on December 20th at 6 PM</li>
+                            <li class="color-homo">Additional announcement 1</li>
+                            <li class="color-homo">Additional announcement 2</li>
+                            <li class="color-homo">Additional announcement 3</li>
+                            <li class="color-homo">Additional announcement 4</li>
+                            <li class="color-homo">Additional announcement 5</li>
+                            <li class="color-homo">Additional announcement 6</li>
+                            <li class="color-homo">Additional announcement 7</li>
+                            <li class="color-homo">Additional announcement 8</li>
+                            <li class="color-homo">Additional announcement 9</li>
+                            <li class="color-homo">Additional announcement 10</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="actions w-full lg:w-1/2">
+                <h2 class="text-2xl font-semibold text-custom mb-4">What would you like to do today?</h2>
+                <div class="flex flex-col gap-6">
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400">Create a New Session
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300">Plan and schedule your next session easily.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400">Invite Clients to Your
+                            App</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Grow your client base by inviting them to join your
+                            app.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400">Add a New Staff Member
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300">Expand your team by adding new members.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400">Data Migration</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Seamlessly migrate your existing data to our
+                            platform.</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <footer class="mt-10">
+            <div class="expand-business mb-10">
+                <h2 class="text-2xl font-semibold text-custom mb-4">Expand Your Business</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Share Your Schedule Link"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Share Your Schedule Link</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Clients can view your services, book and pay
+                            for sessions. <span class="text-blue-600 dark:text-blue-400 hover:underline">Get booked
+                                faster</span></p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Share Your Client App"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Share Your Client App</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Clients can download the app, book sessions and
+                            pay for services. <span class="text-blue-600 dark:text-blue-400 hover:underline">Learn all
+                                about it</span></p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Check Out Your Shop"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Check Out Your Shop</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Offer memberships and products in a
+                            professional online website. <span
+                                class="text-blue-600 dark:text-blue-400 hover:underline">Start selling products</span>
+                        </p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Explore the Arbox Marketplace"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Explore the Arbox Marketplace</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">We’ve gathered exclusive offers to help you
+                            grow your business. <span class="text-blue-600 dark:text-blue-400 hover:underline">See
+                                offers</span></p>
+                    </a>
+                </div>
+            </div>
+            <div class="more-features">
+                <h2 class="text-2xl font-semibold text-custom mb-4">More Features Worth Exploring</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Automations"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Automations</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Save time on repetitive tasks by creating
+                            custom automated workflows.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Integrations"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Integrations</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Connect to industry-leading platforms and
+                            manage your business in one place.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Forms"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Forms</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Create detailed forms for your existing and
+                            potential clients to sign.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Reporting & Analytics"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Reporting & Analytics</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Track your business performance and make
+                            decisions driven by data.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Communication"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Communication</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Send the perfect message at the right time
+                            using a suite of marketing tools.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Finance & Invoices"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Finance & Invoices</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Generate digital invoices to save paper and
+                            track your financial progress.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Task Management"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Task Management</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Track and assign tasks to team members or to
+                            yourself.</p>
+                    </a>
+                    <a href="#"
+                        class="block p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 transform transition duration-500 hover:scale-105 hover:z-10 hover-effect">
+                        <img src="https://via.placeholder.com/150" alt="Promo Codes"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Promo Codes</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Incentivize your clients by generating
+                            personalized deals and promo codes.</p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
 </main>
