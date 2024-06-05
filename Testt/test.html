@@ -6,61 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Modern Login Page | AsmrProg</title>
+    <style>
+        .shift-color {
+
+            color: blue;
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="container" id="container">
-        <div class="form-container sign-in">
-            <form>
-                <h1>SMS</h1>
-                <p>You can send a message or create a campaign with SMS messages</p>
-                <button>New SMS session</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-right">
-                    <h1>What's App</h1>
-                    <p>You can send a message or create a campaign with WhatsApp messages</p>
-                    <button class="hidden" id="register">New WhatsApp session</button>
-
-                    <!-- Table for displaying created sessions -->
-                    
-                </div>
-            </div>
-        </div>
-        
+    <div
+        class="rounded-lg transform shift-color transition hover:scale-105 hover:z-10 mb-6 hover-effect">
+        <ul class="list-disc pl-5 text-custom text-lg space-y-3">
+            <li class="flex justify-between items-center">
+                <span>John Doe</span>
+                <span class="tedst">9:00 AM to 5:00 PM</span>
+            </li>
+            <li class="flex justify-between items-center">
+                <span>Jane Smith</span>
+                <span class="tedst">10:00 AM to 6:00 PM</span>
+            </li>
+            <li class="flex justify-between items-center">
+                <span>Emily Davis</span>
+                <span class="tedst">11:00 AM to 7:00 PM</span>
+            </li>
+        </ul>
     </div>
-    <div class="table-container">
-        <h2>Created Sessions</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Session ID</th>
-                    <th>Session Type</th>
-                    <th>Date Created</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>WhatsApp</td>
-                    <td>2024-05-30</td>
-                    <td>Active</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>SMS</td>
-                    <td>2024-06-01</td>
-                    <td>Completed</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <script src="script.js"></script>
+
 </body>
 
 </html>

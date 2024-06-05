@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tnDUnp/EfdbDN6k4UlDuTLNAb6HXWwyyI0zdAklJBB8=",
+  "Hash": "f79Y7gsKMhAiNuEum5PD9dNYNVtSj4cNgjWDKQHzBTs=",
   "Source": "UI-USM-MVC",
   "BasePath": "_content/UI-USM-MVC",
   "Mode": "Default",
@@ -36,12 +36,12 @@
       "OriginalItemSpec": "wwwroot\\css\\Communication.css"
     },
     {
-      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Home.css",
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Dashboard\\ShopDashboard.css",
       "SourceId": "UI-USM-MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
       "BasePath": "_content/UI-USM-MVC",
-      "RelativePath": "css/Home.css",
+      "RelativePath": "css/Dashboard/ShopDashboard.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,7 +52,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Home.css"
+      "OriginalItemSpec": "wwwroot\\css\\Dashboard\\ShopDashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Home\\Home.css",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "css/Home/Home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Home\\Home.css"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Members.css",
@@ -167,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Communication.js"
+    },
+    {
+      "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Dashboard\\ShopDashboard.js",
+      "SourceId": "UI-USM-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\",
+      "BasePath": "_content/UI-USM-MVC",
+      "RelativePath": "js/Dashboard/ShopDashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Dashboard\\ShopDashboard.js"
     },
     {
       "Identity": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\index.js",
