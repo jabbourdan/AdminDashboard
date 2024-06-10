@@ -1,0 +1,93 @@
+.dashboard {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    color: var(--dark);
+    position: relative;
+}
+
+.card, .card-2 {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.no-appointment, .no-tasks, .no-services {
+    color: var(--dark);
+    text-align: center;
+}
+
+.add-appointment {
+    color: var(--primary);
+    cursor: pointer;
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.filter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: var(--primary);
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+.service-messaging {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card-2 {
+    height: 295px;
+}
+
+.no-services {
+    color: var(--dark);
+    text-align: center;
+}
+
+.add-appointment {
+    color: var(--primary);
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .card, .card-2 {
+        height: auto;
+    }
+}

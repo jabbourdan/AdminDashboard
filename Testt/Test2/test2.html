@@ -4,158 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Size Div Example</title>
+    <title>Tab Navigation</title>
     <style>
-        .three-charts {
-            width: 100%;
-            height: 600px;
-            border: 2px solid #000;
-            background-color: lightblue;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .tab-buttons {
             display: flex;
-            flex-direction: row;
             justify-content: space-around;
-            align-items: center;
-            text-align: center;
-            position: relative;
+            background-color: white;
+            padding: 10px 0;
+            border-bottom: 2px solid #e0e0e0;
         }
 
-        .fixed-size-div {
-            width: 45%;
-            height: 90%;
-            border: 2px solid #000;
-            background-color: lightblue;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            text-align: center;
-            position: relative;
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            transition: color 0.3s;
+            font-size: 16px;
         }
 
-        .chart-container {
-            width: 90%;
-            height: 45%;
+        .tab-button.active {
+            color: #6200ea;
+            border-bottom: 3px solid #6200ea;
         }
 
-        .Circle-data {
-            width: 30%;
-            height: 80%;
+        .tab-content {
+            padding: 20px;
+            display: none;
         }
 
-        canvas {
-            width: 100%;
-            height: 100%;
+        .tab-content.active {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-    <div class="three-charts">
-        <div class="fixed-size-div">
-            <div class="chart-container">
-                <canvas id="chart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart2"></canvas>
-            </div>
-        </div>
-        <div class="Circle-data">
-            <canvas id="chart3"></canvas>
-        </div>
+
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="showTab('Client_details')">Details</button>
+        <button class="tab-button" onclick="showTab('about')">About</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="Client_details" class="tab-content active">
+        <h2>Details</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto optio blanditiis quasi sequi cumque aliquid
+            ea nesciunt perspiciatis, ducimus similique itaque, esse vel asperiores pariatur reiciendis ipsum dolores
+            repellat iste.</p>
+    </div>
+
+    <div id="about" class="tab-content">
+        <h2>About</h2>
+        <p>About content goes here.</p>
+    </div>
+
+    <div id="blogs" class="tab-content">
+        <h2>Blogs</h2>
+        <p>Blogs content goes here.</p>
+    </div>
+
+    <div id="contact" class="tab-content">
+        <h2>Contact us</h2>
+        <p>Contact us content goes here.</p>
+    </div>
+
     <script>
-        var ctx1 = document.getElementById('chart1').getContext('2d');
-        var chart1 = new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        function showTab(tabId) {
+            // Hide all tab contents
+            var tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active');
+            });
 
-        var ctx2 = document.getElementById('chart2').getContext('2d');
-        var chart2 = new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                datasets: [{
-                    label: 'My First dataset',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    data: [0, 10, 5, 2, 20, 30, 45]
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+            // Remove active class from all buttons
+            var buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(function (button) {
+                button.classList.remove('active');
+            });
 
-        var ctx3 = document.getElementById('chart3').getContext('2d');
-        var chart3 = new Chart(ctx3, {
-            type: 'doughnut', // Use doughnut or pie for circular data representation
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to the corresponding button
+            event.currentTarget.classList.add('active');
+        }
     </script>
+
 </body>
 
 </html>

@@ -3,8 +3,12 @@
     ViewBag.Title = "Dashboard";
 }
 
-<main>
+@section Styles {
+    <link href="~/CSS/Dashboard/ShopDashboard.css" rel="stylesheet" />
+    <link href="~/CSS/GeneralAnalytics.css" rel="stylesheet" />
+}
 
+<main>
     <div class="header">
         <div class="left">
             <h1>Dashboard</h1>
@@ -17,8 +21,90 @@
                     <a href="@Url.Action("ShopAnalytics", "Dashboard")" class="link-button">Shop</a>
                 </li>
             </ul>
-
         </div>
     </div>
-    <h2>In Analytics we should add like Arbox</h2>
+    <!-- Insights -->
+    <ul class="insights">
+        <li class="insight-item action-hover">
+            <i class='bx bx-calendar-check'></i>
+            <span class="info">
+                <h3>8</h3>
+                <p>Bookings</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-show-alt'></i>
+            <span class="info">
+                <h3>3,944</h3>
+                <p>Cash flow</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-line-chart'></i>
+            <span class="info">
+                <h3>19</h3>
+                <p>Clients</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-dollar-circle'></i>
+            <span class="info">
+                <h3>7</h3>
+                <p>Subscriptions</p>
+            </span>
+        </li>
+    </ul>
+    <!-- End of Insights -->
+    <div class="dashboard">
+        <div class="card">
+            <h2>Calendar
+                <select class="filter" id="calendar-filter">
+                    <option value="today">Today</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>This Month</option>
+                    <option value="3-months">3 Months</option>
+                </select>
+            </h2>
+            <div class="center-content">
+                <div class="no-appointment">No appointment for today</div>
+                <div class="add-appointment">+Add new appointment</div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Today's Tasks
+                <select class="filter" id="tasks-filter">
+                    <option value="today">Today</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>This Month</option>
+                    <option value="3-months">3 Months</option>
+                </select>
+            </h2>
+            <div class="center-content">
+                <div class="no-tasks">No Task for today</div>
+                <div class="add-appointment">+Add new tasks</div>
+            </div>
+        </div>
+
+        <div class="service-messaging">
+            <div class="card-2">
+                <h2>Top Services
+                    <select class="filter" id="services-filter">
+                        <option value="today">Today</option>
+                        <option value="week">Week</option>
+                        <option value="month" selected>This Month</option>
+                        <option value="3-months">3 Months</option>
+                    </select>
+                </h2>
+                <div class="center-content">
+                    <div class="no-services">No services data available</div>
+                </div>
+            </div>
+            <div class="card-2">
+                <h2>Communications</h2>
+                <div class="center-content">
+                    <div class="no-services"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
