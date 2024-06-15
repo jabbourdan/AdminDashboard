@@ -45,6 +45,14 @@
       "PackagePath": "staticwebassets\\css\\Members.css"
     },
     {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\MembersCrew.css",
+      "PackagePath": "staticwebassets\\css\\MembersCrew.css"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\ShopDashboard.css",
+      "PackagePath": "staticwebassets\\css\\ShopDashboard.css"
+    },
+    {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\css\\Stock.css",
       "PackagePath": "staticwebassets\\css\\Stock.css"
     },
@@ -71,6 +79,10 @@
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Members.js",
       "PackagePath": "staticwebassets\\js\\Members.js"
+    },
+    {
+      "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\MembersCrew.js",
+      "PackagePath": "staticwebassets\\js\\MembersCrew.js"
     },
     {
       "Id": "C:\\Users\\jabbour.dandan\\OneDrive - AU10TIX\\Desktop\\UI-USM-MVC\\wwwroot\\js\\Stock.js",

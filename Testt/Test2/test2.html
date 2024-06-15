@@ -4,100 +4,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab Navigation</title>
+    <title>Team Members</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+        .table td img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            margin-right: 10px;
         }
 
-        .tab-buttons {
+        .table td a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .table td a:hover {
+            text-decoration: underline;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .schedule-table th {
+            border-bottom: 0;
+        }
+
+        .schedule-table th+th {
+            border-left: 1px solid #dee2e6;
+        }
+
+        .shift {
+            background-color: #e0e7ff;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .week-controls {
             display: flex;
-            justify-content: space-around;
-            background-color: white;
-            padding: 10px 0;
-            border-bottom: 2px solid #e0e0e0;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
-        .tab-button {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            transition: color 0.3s;
-            font-size: 16px;
+        .week-controls span,
+        .week-controls button {
+            margin-left: 5px;
         }
 
-        .tab-button.active {
-            color: #6200ea;
-            border-bottom: 3px solid #6200ea;
-        }
-
-        .tab-content {
-            padding: 20px;
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
+        .week-controls #week-dates {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="tab-buttons">
-        <button class="tab-button active" onclick="showTab('Client_details')">Details</button>
-        <button class="tab-button" onclick="showTab('about')">About</button>
+    <div class="container mt-4">
+        <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="main-tab" data-toggle="tab" href="#main" role="tab" aria-controls="main"
+                    aria-selected="true">Main</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="shifts-tab" data-toggle="tab" href="#shifts" role="tab" aria-controls="shifts"
+                    aria-selected="false">Shifts</a>
+            </li>
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 id="page-title">Team Members</h1>
+            <div class="d-flex align-items-center">
+                <button id="prev-week" class="btn btn-light" style="display: none;">&lt;</button>
+                <button id="this-week" class="btn btn-light" style="display: none;">This week</button>
+                <span id="week-dates" style="display: none;">9 - 15 Jun, 2024</span>
+                <button id="next-week" class="btn btn-light" style="display: none;">&gt;</button>
+                <button id="add-button" class="btn btn-primary ml-3">Add</button>
+            </div>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="main-tab">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search team members"
+                        aria-label="Search team members">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Filters</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="member_details.html">
+                                    <img src="https://via.placeholder.com/40" alt="Jabbour Dandan"
+                                        class="rounded-circle">
+                                    Jabbour Dandan
+                                </a>
+                            </td>
+                            <td>
+                                <a href="mailto:jaboordandan14@gmail.com">jaboordandan14@gmail.com</a><br>
+                                +972 50-944-4706
+                            </td>
+                            <td>Active</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="member_details.html">
+                                    <img src="https://via.placeholder.com/40" alt="Wendy Smith" class="rounded-circle">
+                                    Wendy Smith (Demo)
+                                </a>
+                            </td>
+                            <td>
+                                <a href="mailto:wendy.smith@example.com">wendy.smith@example.com</a><br>
+                                +972 50-123-4567
+                            </td>
+                            <td>Inactive</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="shifts" role="tabpanel" aria-labelledby="shifts-tab">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Team member <a href="#">Change</a></th>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                        <tr id="dates-row">
+                            <!-- Dates will be inserted here by JavaScript -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/40" alt="Jabbour Dandan" class="rounded-circle">
+                                Jabbour Dandan <span>52h</span> <button class="btn btn-link"><i
+                                        class="fas fa-pen"></i></button>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 17:00</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/40" alt="Wendy Smith" class="rounded-circle">
+                                Wendy Smith <span>52h</span> <button class="btn btn-link"><i
+                                        class="fas fa-pen"></i></button>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 19:00</div>
+                            </td>
+                            <td>
+                                <div class="shift">10:00 - 17:00</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-    <div id="Client_details" class="tab-content active">
-        <h2>Details</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto optio blanditiis quasi sequi cumque aliquid
-            ea nesciunt perspiciatis, ducimus similique itaque, esse vel asperiores pariatur reiciendis ipsum dolores
-            repellat iste.</p>
-    </div>
-
-    <div id="about" class="tab-content">
-        <h2>About</h2>
-        <p>About content goes here.</p>
-    </div>
-
-    <div id="blogs" class="tab-content">
-        <h2>Blogs</h2>
-        <p>Blogs content goes here.</p>
-    </div>
-
-    <div id="contact" class="tab-content">
-        <h2>Contact us</h2>
-        <p>Contact us content goes here.</p>
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
-        function showTab(tabId) {
-            // Hide all tab contents
-            var tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(function (tab) {
-                tab.classList.remove('active');
+        document.addEventListener('DOMContentLoaded', function () {
+            var weekControls = {
+                dateRangeElement: document.getElementById('week-dates'),
+                prevWeekBtn: document.getElementById('prev-week'),
+                nextWeekBtn: document.getElementById('next-week'),
+                thisWeekBtn: document.getElementById('this-week')
+            };
+
+            var currentWeekStart = new Date();
+            currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay());
+
+            function formatDate(date) {
+                var day = ('0' + date.getDate()).slice(-2);
+                var month = ('0' + (date.getMonth() + 1)).slice(-2);
+                var year = date.getFullYear();
+                return day + '/' + month + '/' + year;
+            }
+
+            function updateWeekDates() {
+                var startDate = new Date(currentWeekStart);
+                var endDate = new Date(currentWeekStart);
+                endDate.setDate(endDate.getDate() + 6);
+                weekControls.dateRangeElement.textContent = formatDate(startDate) + ' - ' + formatDate(endDate);
+
+                var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                var datesRow = document.getElementById('dates-row');
+                datesRow.innerHTML = '';
+                for (var i = 0; i < 7; i++) {
+                    var date = new Date(startDate);
+                    date.setDate(date.getDate() + i);
+                    var th = document.createElement('th');
+                    th.textContent = formatDate(date);
+                    datesRow.appendChild(th);
+                }
+            }
+
+            function changeWeek(offset) {
+                currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7));
+                updateWeekDates();
+            }
+
+            weekControls.prevWeekBtn.addEventListener('click', function () {
+                changeWeek(-1);
             });
 
-            // Remove active class from all buttons
-            var buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(function (button) {
-                button.classList.remove('active');
+            weekControls.nextWeekBtn.addEventListener('click', function () {
+                changeWeek(1);
             });
 
-            // Show the selected tab content
-            document.getElementById(tabId).classList.add('active');
+            weekControls.thisWeekBtn.addEventListener('click', function () {
+                currentWeekStart = new Date();
+                currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay());
+                updateWeekDates();
+            });
 
-            // Add active class to the corresponding button
-            event.currentTarget.classList.add('active');
-        }
+            $('#myTab a').on('shown.bs.tab', function (event) {
+                var activeTab = $(event.target).attr('id');
+                var titleElement = document.getElementById('page-title');
+                var addButton = document.getElementById('add-button');
+                if (activeTab === 'main-tab') {
+                    titleElement.textContent = 'Team Members';
+                    addButton.textContent = 'Add Member';
+                    addButton.onclick = function () {
+                        // Add Member functionality
+                        alert('Add Member clicked');
+                    };
+                    weekControls.dateRangeElement.style.display = 'none';
+                    weekControls.prevWeekBtn.style.display = 'none';
+                    weekControls.nextWeekBtn.style.display = 'none';
+                    weekControls.thisWeekBtn.style.display = 'none';
+                } else if (activeTab === 'shifts-tab') {
+                    titleElement.textContent = 'Scheduled Shifts';
+                    addButton.textContent = 'Add Shift';
+                    addButton.onclick = function () {
+                        // Add Shift functionality
+                        alert('Add Shift clicked');
+                    };
+                    weekControls.dateRangeElement.style.display = 'inline-block';
+                    weekControls.prevWeekBtn.style.display = 'inline-block';
+                    weekControls.nextWeekBtn.style.display = 'inline-block';
+                    weekControls.thisWeekBtn.style.display = 'inline-block';
+                    updateWeekDates();
+                }
+            });
+
+            updateWeekDates(); // Initialize the week dates
+        });
     </script>
-
 </body>
 
 </html>
