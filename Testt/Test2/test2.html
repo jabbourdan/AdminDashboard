@@ -4,343 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Members</title>
+    <title>Dashboard Sidebar</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .table td img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            margin-right: 10px;
+        /* Custom sidebar styles */
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            height: 100%;
+            background-color: #343a40;
+            padding-top: 20px;
         }
 
-        .table td a {
+        .sidebar a {
+            color: #fff;
+            display: block;
+            padding: 10px;
             text-decoration: none;
-            color: inherit;
         }
 
-        .table td a:hover {
-            text-decoration: underline;
+        .sidebar a:hover {
+            background-color: #575d63;
         }
 
-        .schedule-table {
+        .menu-text,
+        .crew-text,
+        .clients-text {
+            margin-left: 10px;
+        }
+
+        .logout-menu {
+            position: absolute;
+            bottom: 20px;
             width: 100%;
-            border-collapse: collapse;
         }
 
-        .schedule-table th,
-        .schedule-table td {
-            border: 1px solid #dee2e6;
-            padding: 8px;
-            text-align: center;
+        .dropdown-menu {
+            background-color: #343a40;
+            border: none;
         }
 
-        .schedule-table th {
-            border-bottom: 0;
+        .dropdown-item {
+            color: #fff;
         }
 
-        .schedule-table th+th {
-            border-left: 1px solid #dee2e6;
+        .dropdown-item:hover {
+            background-color: #575d63;
         }
 
-        .shift {
-            background-color: #e0e7ff;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 5px 0;
-        }
-
-        .week-controls {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .week-controls span,
-        .week-controls button {
-            margin-left: 5px;
-        }
-
-        .week-controls #week-dates {
-            display: inline-block;
-            padding: 0.375rem 0.75rem;
-            background-color: #f8f9fa;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
+        .dropdown-container {
+            padding-left: 15px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container mt-4">
-        <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="main-tab" data-toggle="tab" href="#main" role="tab" aria-controls="main"
-                    aria-selected="true">Main</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="shifts-tab" data-toggle="tab" href="#shifts" role="tab" aria-controls="shifts"
-                    aria-selected="false">Shifts</a>
-            </li>
-        </ul>
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1 id="page-title">Team Members</h1>
-            <div class="d-flex align-items-center">
-                <button id="prev-week" class="btn btn-light" style="display: none;">&lt;</button>
-                <button id="this-week" class="btn btn-light" style="display: none;">This week</button>
-                <span id="week-dates" style="display: none;">9 - 15 Jun, 2024</span>
-                <button id="next-week" class="btn btn-light" style="display: none;">&gt;</button>
-                <button id="add-button" class="btn btn-primary ml-3">Add</button>
-            </div>
-        </div>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="main-tab">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search team members"
-                        aria-label="Search team members">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Filters</button>
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>DashAdmin</span></div>
+        </a>
+        <div class="menu-items">
+            <ul class="side-menu">
+                <li><a asp-controller="Home" asp-action="Index"><i class='bx bx-home'></i><span
+                            class="menu-text">Home</span></a></li>
+                <li><a asp-controller="Dashboard" asp-action="Index"><i class='bx bxs-dashboard'></i><span
+                            class="menu-text">Dashboard</span></a></li>
+                <li><a asp-controller="Schedule" asp-action="Index"><i class='bx bx-time-five'></i><span
+                            class="menu-text">Schedule</span></a></li>
+                <li><a asp-controller="Tasks" asp-action="Index"><i class='bx bx-task'></i><span
+                            class="menu-text">Tasks</span></a></li>
+                <li><a asp-controller="Members" asp-action="Index"><i class='bx bx-user'></i><span
+                            class="menu-text">Clients</span></a></li>
+                <li><a asp-controller="MembersCrew" asp-action="Index"><i class='bx bx-user'></i><span
+                            class="menu-text">Team</span></a></li>
+                <li><a asp-controller="Reports" asp-action="Index"><i class='bx bxs-report'></i><span
+                            class="menu-text">Reports</span></a></li>
+
+                <!-- Marketing Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="marketingDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class='bx bx-chat'></i><span class="menu-text">Marketing</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="marketingDropdown">
+                        <a class="dropdown-item" asp-controller="Communication" asp-action="Index">Overview</a>
+                        <a class="dropdown-item" asp-controller="Campaigns" asp-action="Index">Campaigns</a>
+                        <a class="dropdown-item" asp-controller="Analytics" asp-action="Index">Analytics</a>
                     </div>
+                </li>
+
+                <!-- New Dropdown Container -->
+                <div class="dropdown-container">
+                    <li><a asp-controller="Stock" asp-action="Index"><i class='bx bx-box'></i><span
+                                class="crew-text">Stock</span></a></li>
+                    <li><a asp-controller="StoreItems" asp-action="Index"><i class='bx bx-store'></i><span
+                                class="clients-text">Store Items</span></a></li>
+                    <li><a asp-controller="Orders" asp-action="Index"><i class='bx bx-cart'></i><span
+                                class="clients-text">Orders</span></a></li>
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Contact</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a href="member_details.html">
-                                    <img src="https://via.placeholder.com/40" alt="Jabbour Dandan"
-                                        class="rounded-circle">
-                                    Jabbour Dandan
-                                </a>
-                            </td>
-                            <td>
-                                <a href="mailto:jaboordandan14@gmail.com">jaboordandan14@gmail.com</a><br>
-                                +972 50-944-4706
-                            </td>
-                            <td>Active</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Actions
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="member_details.html">
-                                    <img src="https://via.placeholder.com/40" alt="Wendy Smith" class="rounded-circle">
-                                    Wendy Smith (Demo)
-                                </a>
-                            </td>
-                            <td>
-                                <a href="mailto:wendy.smith@example.com">wendy.smith@example.com</a><br>
-                                +972 50-123-4567
-                            </td>
-                            <td>Inactive</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Actions
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="shifts" role="tabpanel" aria-labelledby="shifts-tab">
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Team member <a href="#">Change</a></th>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                        <tr id="dates-row">
-                            <!-- Dates will be inserted here by JavaScript -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img src="https://via.placeholder.com/40" alt="Jabbour Dandan" class="rounded-circle">
-                                Jabbour Dandan <span>52h</span> <button class="btn btn-link"><i
-                                        class="fas fa-pen"></i></button>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 17:00</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://via.placeholder.com/40" alt="Wendy Smith" class="rounded-circle">
-                                Wendy Smith <span>52h</span> <button class="btn btn-link"><i
-                                        class="fas fa-pen"></i></button>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 19:00</div>
-                            </td>
-                            <td>
-                                <div class="shift">10:00 - 17:00</div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+                <li><a asp-controller="Settings" asp-action="Index"><i class='bx bx-cog'></i><span
+                            class="menu-text">Settings</span></a></li>
+            </ul>
         </div>
+        <ul class="side-menu logout-menu">
+            <li><a href="#" class="logout"><i class='bx bx-log-out'></i><span class="menu-text">Logout</span></a></li>
+        </ul>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var weekControls = {
-                dateRangeElement: document.getElementById('week-dates'),
-                prevWeekBtn: document.getElementById('prev-week'),
-                nextWeekBtn: document.getElementById('next-week'),
-                thisWeekBtn: document.getElementById('this-week')
-            };
-
-            var currentWeekStart = new Date();
-            currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay());
-
-            function formatDate(date) {
-                var day = ('0' + date.getDate()).slice(-2);
-                var month = ('0' + (date.getMonth() + 1)).slice(-2);
-                var year = date.getFullYear();
-                return day + '/' + month + '/' + year;
-            }
-
-            function updateWeekDates() {
-                var startDate = new Date(currentWeekStart);
-                var endDate = new Date(currentWeekStart);
-                endDate.setDate(endDate.getDate() + 6);
-                weekControls.dateRangeElement.textContent = formatDate(startDate) + ' - ' + formatDate(endDate);
-
-                var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                var datesRow = document.getElementById('dates-row');
-                datesRow.innerHTML = '';
-                for (var i = 0; i < 7; i++) {
-                    var date = new Date(startDate);
-                    date.setDate(date.getDate() + i);
-                    var th = document.createElement('th');
-                    th.textContent = formatDate(date);
-                    datesRow.appendChild(th);
-                }
-            }
-
-            function changeWeek(offset) {
-                currentWeekStart.setDate(currentWeekStart.getDate() + (offset * 7));
-                updateWeekDates();
-            }
-
-            weekControls.prevWeekBtn.addEventListener('click', function () {
-                changeWeek(-1);
-            });
-
-            weekControls.nextWeekBtn.addEventListener('click', function () {
-                changeWeek(1);
-            });
-
-            weekControls.thisWeekBtn.addEventListener('click', function () {
-                currentWeekStart = new Date();
-                currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay());
-                updateWeekDates();
-            });
-
-            $('#myTab a').on('shown.bs.tab', function (event) {
-                var activeTab = $(event.target).attr('id');
-                var titleElement = document.getElementById('page-title');
-                var addButton = document.getElementById('add-button');
-                if (activeTab === 'main-tab') {
-                    titleElement.textContent = 'Team Members';
-                    addButton.textContent = 'Add Member';
-                    addButton.onclick = function () {
-                        // Add Member functionality
-                        alert('Add Member clicked');
-                    };
-                    weekControls.dateRangeElement.style.display = 'none';
-                    weekControls.prevWeekBtn.style.display = 'none';
-                    weekControls.nextWeekBtn.style.display = 'none';
-                    weekControls.thisWeekBtn.style.display = 'none';
-                } else if (activeTab === 'shifts-tab') {
-                    titleElement.textContent = 'Scheduled Shifts';
-                    addButton.textContent = 'Add Shift';
-                    addButton.onclick = function () {
-                        // Add Shift functionality
-                        alert('Add Shift clicked');
-                    };
-                    weekControls.dateRangeElement.style.display = 'inline-block';
-                    weekControls.prevWeekBtn.style.display = 'inline-block';
-                    weekControls.nextWeekBtn.style.display = 'inline-block';
-                    weekControls.thisWeekBtn.style.display = 'inline-block';
-                    updateWeekDates();
-                }
-            });
-
-            updateWeekDates(); // Initialize the week dates
-        });
-    </script>
 </body>
 
 </html>

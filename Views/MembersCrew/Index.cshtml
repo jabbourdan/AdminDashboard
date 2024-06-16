@@ -5,6 +5,7 @@
 
 @section Styles {
     <link href="~/CSS/MembersCrew.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 }
 
@@ -19,7 +20,11 @@
     </div>
 
     <div id="Team_details" class="tab-content active">
-        <h2>Crew</h2>
+        <div class="d-flex align-items-center">
+            <h2>Crew</h2>
+            <button id="add-button-Crew" class="btn btn-primary ml-auto">Add</button>
+        </div>
+
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search team members" aria-label="Search team members">
             <div class="input-group-append">
@@ -37,7 +42,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Jabbour Dandan</td>
+                    <td>Jabbour Dandan<i class="mdi mdi-pencil"></i></td>
                     <td>
                         <a href="mailto:jaboordandan14@gmail.com">jaboordandan14@gmail.com</a><br>
                         +972 50-944-4706
@@ -57,7 +62,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Wendy Smith (Demo)</td>
+                    <td>Wendy Smith (Demo)<i class="mdi mdi-pencil"></i></td>
                     <td>
                         <a href="mailto:wendy.smith@example.com">wendy.smith@example.com</a><br>
                         +972 50-123-4567
@@ -109,7 +114,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Jabbour Dandan <span>52h</span> <button class="btn btn-link"><i class="fas fa-pen"></i></button>
+                    <td>Jabbour Dandan <i class="mdi mdi-pencil"><i class="fas fa-pen"></i></button>
                     </td>
                     <td>
                         <div class="shift">10:00 - 19:00</div>
@@ -134,7 +139,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Wendy Smith <span>52h</span> <button class="btn btn-link"><i class="fas fa-pen"></i></button>
+                    <td>Wendy Smith <i class="mdi mdi-pencil"><i class="fas fa-pen"></i></button>
                     </td>
                     <td>
                         <div class="shift">10:00 - 19:00</div>
