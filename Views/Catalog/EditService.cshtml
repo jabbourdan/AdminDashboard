@@ -1,0 +1,71 @@
+@model UI_USM_MVC.Models.Services
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit Service";
+}
+
+@section Styles {
+    <link href="~/CSS/Catalog/AddNewService.css" rel="stylesheet" />
+}
+
+<div class="container" data-service-id="@Model.ServicesId">
+    <div class="header">
+        <h2>Edit Service Details</h2>
+    </div>
+
+    <div class="form-group">
+        <label for="serviceName">Service name</label>
+        <input type="text" id="serviceName" maxlength="255" placeholder="Add a service name, e.g., Men's Haircut"
+            value="@Model.ServiceName">
+    </div>
+
+    <div class="form-group">
+        <label for="menuCategory">Menu category</label>
+        <input type="text" id="menuCategory" maxlength="255" placeholder="Add a service category"
+            value="@Model.Category">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description (Optional)</label>
+        <textarea id="description" rows="4" maxlength="1000"
+            placeholder="Add a short description">@Model.Descriptions</textarea>
+        <small class="char-counter" id="descriptionCounter">0/1000</small>
+    </div>
+
+    <hr>
+
+    <div class="header">
+        <h2>Pricing and duration</h2>
+    </div>
+
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <select id="duration">
+            <option value="30m">30m</option>
+            <option value="1h">1h</option>
+            <option value="1h 30m">1h 30m</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" id="price" placeholder="0.00" min="0" step="0.01" value="@Model.Price">
+    </div>
+
+    <div class="form-group">
+        <label for="sale">Sale</label>
+        <input type="number" id="sale" placeholder="Default" min="0" step="0.01">
+    </div>
+
+    <div class="form-actions">
+        <button class="btn btn-success" id="saveButton" type="button">Save</button>
+        <button class="btn btn-secondary" id="cancelButton" type="button">Cancel</button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="~/js/Catalog/EditService.js"></script>
+}

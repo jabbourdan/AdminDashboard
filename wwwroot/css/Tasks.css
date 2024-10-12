@@ -1,0 +1,267 @@
+/* Ensure the main project area shrinks when the slide form opens */
+.project {
+    flex: 1;
+    padding: 20px;
+    transition: all 0.3s ease; /* Smooth transition */
+    margin-right: 0; /* Start with no margin */
+}
+
+/* Add a class for when the side slide is open */
+.project.shrink {
+    margin-right: 400px; /* Adjust this value based on the width of your side form */
+}
+
+/* Styling for the slider */
+.slider {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    overflow-y: auto; /* Ensure the content is scrollable if it exceeds the height */
+    display: none; /* Initially hidden */
+    transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+.slider.active {
+    display: block; /* Display the slider when active */
+    transform: translateX(0); /* Ensure it's in the correct position */
+}
+
+.slider-content {
+    padding: 20px;
+}
+
+/* Buttons and inputs inside the slider */
+.slider-content input,
+.slider-content select,
+.slider-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.slider-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.slider-content button.cancel-btn {
+    background-color: #dc3545;
+}
+
+.slider-content button:hover {
+    opacity: 0.9;
+}
+
+/* Project and task list styling */
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-participants {
+    display: flex;
+    align-items: center;
+}
+
+.project-participants span,
+.arrow span {
+    width: 30px;
+    height: 30px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+}
+
+.project-participants__add {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-tasks {
+    display: flex;
+    margin-top: 20px;
+    transition: all 0.3s ease; /* Add smooth transition when resizing */
+}
+
+.project-column {
+    flex: 1;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.project-column:last-child {
+    margin-right: 0;
+}
+
+.project-column-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.project-column-heading__title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.project-column-heading__options {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.task {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task__tags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative; /* Required for absolute positioning of .task__actions */
+}
+
+.task__tag {
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.task__tag--copyright {
+    background-color: #ffeb3b;
+}
+
+.task__tag--design {
+    background-color: #03a9f4;
+}
+
+.task__tag--illustration {
+    background-color: #4caf50;
+}
+
+.task__options {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.task__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #777;
+}
+
+.task__owner {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* Task options dropdown */
+.task__actions {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.task__actions button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.task__actions button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Date picker styling */
+.ant-picker {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 4px;
+    width: 400px;
+    background-color: #fff;
+    position: relative;
+}
+
+.ant-picker-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+}
+
+.ant-picker-input input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.ant-picker-suffix,
+.ant-picker-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.ant-picker-suffix:hover,
+.ant-picker-clear:hover {
+    color: #40a9ff;
+}
+
+.ant-picker-active-bar {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #40a9ff;
+    transition: left 0.3s, width 0.3s;
+}

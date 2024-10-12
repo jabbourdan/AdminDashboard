@@ -1,0 +1,168 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Schedule";
+}
+
+<main>
+    <div class="header">
+        <div class="left">
+            <h1>Schedule</h1>
+        </div>
+    </div>
+
+    <!-- Calendar HTML -->
+    <div id="wrap">
+        <div id="calendar"></div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <!-- Side Menu Form for Adding a Task -->
+    <div id="taskSideMenu" class="side-menu">
+        <div class="side-menu-content centered-container">
+            <button type="button" class="close" aria-label="Close" onclick="closeSideMenu()"
+                style="position: absolute; top: 10px; right: 10px; font-size: 1.5rem; background: none; border: none; color: #000; cursor: pointer;">
+                &times;
+            </button>
+            <h5>Add New Event</h5>
+            <div class="progress-bar">
+                <div class="steps-container">
+                    <div class="step completed">
+                        <div class="circle">1</div>
+                        <div class="label">Client</div>
+                    </div>
+                    <div class="step">
+                        <div class="circle">2</div>
+                        <div class="label">Time</div>
+                    </div>
+                    <div class="step">
+                        <div class="circle">3</div>
+                        <div class="label">Service</div>
+                    </div>
+                    <div class="step">
+                        <div class="circle">4</div>
+                        <div class="label">Done</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: Client Selection -->
+            <div class="step-content" id="step1">
+                <label for="clientSelect">Client Name</label>
+                <select class="form-control" id="clientSelect">
+                    <option value="">Select Client</option>
+                </select>
+                <div class="text-center">
+                    <button class="btn btn-outline-secondary" onclick="addNewClient()">Add New Client</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Time Selection -->
+            <div class="step-content" id="step2" style="display: none;">
+                <div class="form-group">
+                    <label for="pickDate">Pick Date</label>
+                    <input type="date" class="form-control" id="pickDate" />
+                </div>
+                <div class="form-group">
+                    <label for="startTime">Start Time</label>
+                    <input type="time" class="form-control" id="startTime" />
+                </div>
+                <div class="form-group">
+                    <label for="endTime">End Time</label>
+                    <input type="time" class="form-control" id="endTime" />
+                </div>
+            </div>
+
+            <!-- Step 3: Service Selection -->
+            <div class="step-content" id="step3" style="display: none;">
+                <div class="form-group">
+                    <label for="serviceType">Service Type</label>
+                    <select class="form-control" id="serviceType">
+                        <option value="service">Service</option>
+                        <option value="package">Package</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceList">Available Services</label>
+                    <select class="form-control" id="serviceList">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-outline-secondary" onclick="addNewService()">Add New Service</button>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-outline-secondary" onclick="addNewPackage()">Add New Package</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Done -->
+            <div class="step-content" id="step4" style="display: none;">
+                <h3 class="text-success">Event Created!</h3>
+                <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
+                    <div class="display-1 text-success">✓</div>
+                </div>
+            </div>
+
+            <div class="form-actions-bottom">
+                <button id="prevBtn" onclick="PrevSideMenu()">Prev</button>
+                <button id="nextBtn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- FullCalendar CSS and JS includes -->
+<link href="~/css/Schedule/fullcalendar.css" rel="stylesheet" />
+<link href="~/css/Schedule/schedule.css" rel="stylesheet" />
+<script src="~/js/Schedule/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="~/js/Schedule/jquery-ui.custom.min.js" type="text/javascript"></script>
+<script src="~/js/Schedule/fullcalendar.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+
+<!-- Combined JavaScript file -->
+<script src="~/js/Schedule/schedule2.js"></script>
+
+<!-- Custom Styles -->
+<style>
+    /* Full height for the calendar */
+    #wrap,
+    #calendar {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Calendar styling */
+    #calendar {
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px #C3C3C3;
+    }
+
+    /* Context menu styling */
+    .context-menu {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .context-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .context-menu ul li {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+        background-color: #ddd;
+    }
+
+    /* Additional styles for side menu and steps */
+    /* ... (Add your custom styles here) ... */
+</style>

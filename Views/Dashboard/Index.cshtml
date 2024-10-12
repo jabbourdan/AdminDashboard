@@ -1,0 +1,231 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+
+@section Styles {
+    <link href="~/CSS/Dashboard/ShopDashboard.css" rel="stylesheet" />
+    <link href="~/CSS/Dashboard/GeneralAnalytics.css" rel="stylesheet" />
+}
+
+<main>
+    <div class="header">
+        <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index", "Dashboard")" class="link-button active">Analytics</a>
+                </li>
+                /
+                <li>
+                    <a href="@Url.Action("ShopAnalytics", "Dashboard")" class="link-button">Shop (Sample)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Insights -->
+    <ul class="insights">
+        <li class="insight-item action-hover">
+            <i class='bx bx-calendar-check'></i>
+            <span class="info">
+                <h3>@ViewBag.EventCount</h3>
+                <p>Total Booking</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-show-alt'></i>
+            <span class="info">
+                <h3>@ViewBag.ServicesCount</h3>
+                <p>Services</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-line-chart'></i>
+            <span class="info">
+                <h3>@ViewBag.ClientCount</h3>
+                <p>Clients</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-dollar-circle'></i>
+            <span class="info">
+                <h3>@ViewBag.CrewCount</h3>
+                <p>Crew</p>
+            </span>
+        </li>
+    </ul>
+    <!-- End of Insights -->
+    <div class="dashboard">
+        <div class="card">
+            <h2>Calendar
+                <select class="filter" id="calendar-filter" onchange="filterEvents()">
+                    <option value="today">Today</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>This Month</option>
+                </select>
+            </h2>
+            <div class="center-content scrollable" id="event-list">
+                <div class="no-appointment">No appointment for today</div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Today's Tasks
+                <select class="filter" id="tasks-filter" onchange="filterTasks()">
+                    <option value="today">Today</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>This Month</option>
+                    <option value="3-months">3 Months</option>
+                </select>
+            </h2>
+            <div class="center-content scrollable" id="task-list">
+                <div class="no-tasks">No Task for today</div>
+            </div>
+        </div>
+
+        <div class="service-messaging">
+            <div class="card-2">
+                <h2>Top Services </h2>
+                <div class="center-content scrollable" id="services-list">
+                    <div class="no-services">No services data available</div>
+                </div>
+            </div>
+            <div class="card-2">
+                <h2>Communications</h2>
+                <div class="center-content">
+                    <div class="communication-counter">
+                        <span id="counter">1</span> / 200
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- Your script -->
+<script>
+    function filterEvents() {
+        var selectedFilter = document.getElementById("calendar-filter").value;
+
+        // Fetch the events using AJAX
+        fetch('/Schedule/GetEventsFilter?filter=' + selectedFilter)
+            .then(response => response.json())
+            .then(events => {
+                var eventListDiv = document.getElementById("event-list");
+                eventListDiv.innerHTML = ""; // Clear the previous events
+
+                if (events.length === 0) {
+                    eventListDiv.innerHTML = "<div class='no-appointment'>No appointment for " + selectedFilter + "</div>";
+                } else {
+                    events.forEach(event => {
+                        var eventDiv = document.createElement("div");
+                        eventDiv.classList.add("event-item");
+
+                        // Format the start and end times
+                        var startTime = new Date(event.start).toLocaleString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        var endTime = event.end ? new Date(event.end).toLocaleString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        }) : null;
+
+                        // Display client and event title with '-' separator
+                        eventDiv.innerHTML = "<strong>Client: " + (event.clientName || 'N/A') + " - " + event.title + "</strong><br>" +
+                            "Start Time: " + startTime + "<br>" +
+                            (endTime ? "End Time: " + endTime + "<br>" : "");
+
+                        eventListDiv.appendChild(eventDiv);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching events:", error);
+            });
+    }
+
+    // Function to fetch and display tasks based on the selected filter
+    function filterTasks() {
+        var selectedFilter = document.getElementById("tasks-filter").value;
+
+        // Fetch the tasks using AJAX
+        fetch('/Tasks/GetTasksFilter?filter=' + selectedFilter)
+            .then(response => response.json())
+            .then(tasks => {
+                var taskListDiv = document.getElementById("task-list");
+                taskListDiv.innerHTML = ""; // Clear the previous tasks
+                if (tasks.length === 0) {
+                    taskListDiv.innerHTML = "<div class='no-tasks'>No tasks for " + selectedFilter + "</div>";
+                } else {
+                    tasks.forEach(task => {
+                        var taskDiv = document.createElement("div");
+                        taskDiv.classList.add("event-item");
+
+                        // Format the end time using toLocaleString()
+                        var endTime = new Date(task.dateExpired).toLocaleString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        // Display the task information with the formatted end time
+                        taskDiv.innerHTML = "<strong>" + task.section + "</strong><br>" +
+                            "Status: " + task.status + "<br>" +
+                            "End Time: " + endTime;
+
+                        taskListDiv.appendChild(taskDiv);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching tasks:", error);
+            });
+    }
+
+    // Function to fetch and display top services
+    function fetchTopServices() {
+        // Fetch the top services using AJAX
+        fetch('/Catalog/GetService?IsPackage=false')
+            .then(response => response.json())
+            .then(services => {
+                console.log(services); // Log the response to verify structure
+                var servicesListDiv = document.getElementById("services-list");
+                servicesListDiv.innerHTML = ""; // Clear the previous services
+
+                if (services.data.length === 0) { // Check services.data.length
+                    servicesListDiv.innerHTML = "<div class='no-services'>No top services available</div>";
+                } else {
+                    services.data.forEach(service => {
+                        var serviceDiv = document.createElement("div");
+                        serviceDiv.classList.add("service-item");
+                        // Display client and service in the format "Client: (name) - Service"
+                        // Display service, category, and price on separate lines
+                        serviceDiv.innerHTML = "<strong>Service: " + (service.serviceName || 'N/A') + "</strong><br>" +
+                            "Category: " + (service.category || 'N/A') + "<br>" +
+                            "Price: " + (service.price || 'N/A') + "<br>"; // Add category and price on separate lines
+                        servicesListDiv.appendChild(serviceDiv);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching top services:", error);
+            });
+    }
+
+    // Fetch events for the default "month" filter on page load
+    window.onload = function () {
+        filterEvents();
+        filterTasks();
+        fetchTopServices();
+    };
+</script>

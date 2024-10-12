@@ -1,0 +1,105 @@
+@{
+    var theme = Context.Request.Cookies["Theme"] ?? "light";
+    var isChecked = theme == "dark" ? "checked" : "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+    @RenderSection("Styles", required: false)
+    <title>@ViewBag.Title</title>
+</head>
+
+<body class="@(Context.Request.Cookies["Theme"] ?? "light")">
+    <!-- sidebar1-->
+    <div class="sidebar1">
+        <a href="#" class="logo" style="text-decoration: none;">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name" ><span>DashAdmin</span></div>
+        </a>
+        <div class="menu-items">
+            <ul class="side-menu">
+                @* <li><a asp-controller="Home" asp-action="Index" style="text-decoration: none;"><i class='bx bx-home'></i><span
+                            class="menu-text">Home</span></a></li> *@
+                <li><a asp-controller="Dashboard" asp-action="Index" style="text-decoration: none;"><i class='bx bxs-dashboard'></i><span
+                            class="menu-text">Dashboard</span></a></li>
+                <li><a asp-controller="Schedule" asp-action="Index" style="text-decoration: none;"><i class='bx bx-time-five'></i><span
+                            class="menu-text">Schedule</span></a></li>
+                <li><a asp-controller="Tasks" asp-action="Index" style="text-decoration: none;"><i class='bx bx-task'></i><span
+                            class="menu-text">Tasks</span></a></li>
+
+                <li><a asp-controller="Members" asp-action="Index" style="text-decoration: none;"><i class='bx bxs-contact'></i><span
+                            class="menu-text">Clients</span></a></li>
+
+                <li><a asp-controller="MembersCrew" asp-action="Index" style="text-decoration: none;"><i class='bx bx-user'></i><span
+                            class="menu-text">Team</span></a></li>
+
+                <li><a asp-controller="Catalog" asp-action="Index" style="text-decoration: none;"><i class='bx bx-book-open'></i><span
+                            class="menu-text">Catalog</span></a></li>
+
+                <li><a asp-controller="Reports" asp-action="Index" style="text-decoration: none;"><i class='bx bxs-report'></i><span
+                            class="menu-text">Reports</span></a></li>
+                <!-- Test-->
+                <button class="dropdown-btn"><i class='bx bx-chat'></i>
+                    <span class="menu-text">Marketing</span>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+
+                <div class="dropdown-container">
+                    <li><a asp-controller="Marketing" asp-action="Index" style="text-decoration: none;"></i>
+                            <span class="crew-text">Automations</span></a>
+                    </li>
+                    <li><a asp-controller="MarketingDeals" asp-action="Index" style="text-decoration: none;"></i>
+                            <span class="clients-text">Deals (Coming Soon)</span></a>
+                    </li>
+                </div>
+                <!-- /Test-->
+                <li><a asp-controller="Settings" asp-action="Index" style="text-decoration: none;"><i class='bx bx-cog'></i><span
+                            class="menu-text">Settings</span></a></li>
+            </ul>
+        </div>
+        <ul class="side-menu logout-menu">
+            <li><a href="#" class="logout" style="text-decoration: none;"><i class='bx bx-log-out'></i><span class="menu-text">Logout</span></a></li>
+        </ul>
+    </div>
+
+
+    <!-- End sidebar1-->
+
+    <!--Main Content-->
+    <div class="content">
+        <!-- Navabar -->
+        <nav>
+            <i class='bx bx-menu-alt-left'></i>
+
+            <input type="checkbox" id="theme-toggle" hidden @isChecked>
+            <label for="theme-toggle" class="theme-toggle"></label>
+
+            <a href="#" class="notif">
+                <i class='bx bxs-bell-ring'></i>
+                <span class="count">12</span>
+
+            </a>
+            <a href="#" class="profile">
+                <img src="/Images/avatar.png">
+            </a>
+            <!-- End Navabar -->
+        </nav>
+        <!-- Body -->
+        <main>
+            @RenderBody()
+        </main>
+
+    </div>
+    <!--End Main Content-->
+    <script src="~/js/index.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

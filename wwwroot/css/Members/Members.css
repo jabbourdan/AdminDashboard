@@ -1,0 +1,115 @@
+/* Members.css */
+
+.container-fluid,
+.row,
+.content1 {
+    padding: 0;
+    margin: 0;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.top-nav a.active {
+    font-weight: bold;
+    color: #6f42c1;
+    border-bottom: 3px solid #6f42c1;
+}
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.profile-image-container {
+    display: flex;
+    justify-content: flex-start; /* Align to the start */
+    margin-bottom: 20px;
+    padding-left: 20%; /* Adjust this value as needed to position before the center */
+}
+
+.profile-image {
+    position: relative;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-image .edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Match the background to the image */
+    border-radius: 50%;
+    padding: 2px; /* Adjust size as needed */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+}
+
+.profile-image .edit-icon .bx-pencil {
+    font-size: 10px; /* Adjust size as needed */
+    color: #333; /* Icon color */
+}
+
+.compact-form .form-group {
+    margin: 10px;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-save {
+    margin: 0 10px;
+}
+
+.client-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #e6e6fa;
+    color: #6f42c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2em; /* Adjust font size as needed */
+    text-transform: uppercase; /* To make the initials uppercase */
+}
+
+@media (max-width: 767px) {
+    .content {
+        margin-top: 20px;
+    }
+
+    .top-buttons {
+        display: none;
+    }
+
+    .bottom-buttons {
+        display: flex;
+    }
+}

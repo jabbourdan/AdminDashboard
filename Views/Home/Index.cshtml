@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+
+@section Styles {
+    <link href="~/CSS/Home/Home.css" rel="stylesheet" />
+}
+<main>
+    <div class="container">
+        <div class="mb-6">
+            <h1 class="title">Good Evening, Jorda</h1>
+        </div>
+        <div class="flex-container">
+            <section class="welcome">
+                <div class="welcome-content">
+                    <h2 class="section-title">Shifts Owners Today</h2>
+                    <div class="shift-color action-hover">
+                        <ul class="shift-list">
+                            <li class="shift-item">
+                                <span>John Doe</span>
+                                <span class="shift-time bg-blue">9:00 AM to 5:00 PM</span>
+                            </li>
+                            <li class="shift-item">
+                                <span>Jane Smith</span>
+                                <span class="shift-time bg-green">10:00 AM to 6:00 PM</span>
+                            </li>
+                            <li class="shift-item">
+                                <span>Emily Davis</span>
+                                <span class="shift-time bg-purple ">11:00 AM to 7:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="section-title">Announcements</h2>
+                    <div class="announcements action-hover">
+                        <ul class="announcement-list no-scrollbar">
+                            <li>New staff training on Friday at 3 PM</li>
+                            <li>Maintenance scheduled for Saturday at 1 PM</li>
+                            <li>Holiday party on December 20th at 6 PM</li>
+                            <li>Additional announcement 1</li>
+                            <li>Additional announcement 2</li>
+                            <li>Additional announcement 3</li>
+                            <li>Additional announcement 4</li>
+                            <li>Additional announcement 5</li>
+                            <li>Additional announcement 6</li>
+                            <li>Additional announcement 7</li>
+                            <li>Additional announcement 8</li>
+                            <li>Additional announcement 9</li>
+                            <li>Additional announcement 10</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="actions">
+                <h2 class="section-title">What would you like to do today?</h2>
+                <div class="actions-container">
+                    <a href="#" class="action-link action-hover">
+                        <h3 class="action-title">Create a New Session</h3>
+                        <p class="action-description">Plan and schedule your next session easily.</p>
+                    </a>
+                    <a href="#" class="action-link action-hover">
+                        <h3 class="action-title">Invite Clients to Your App</h3>
+                        <p class="action-description">Grow your client base by inviting them to join your app.</p>
+                    </a>
+                    <a href="#" class="action-link action-hover">
+                        <h3 class="action-title">Add a New Staff Member</h3>
+                        <p class="action-description">Expand your team by adding new members.</p>
+                    </a>
+                    <a href="#" class="action-link action-hover">
+                        <h3 class="action-title">Data Migration</h3>
+                        <p class="action-description">Seamlessly migrate your existing data to our platform.</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="expand-business">
+                <h2 class="section-title">Expand Your Business</h2>
+                <div class="grid-container">
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Share Your Schedule Link" class="feature-image">
+                        <h3 class="feature-title">Share Your Schedule Link</h3>
+                        <p class="feature-description">Clients can view your services, book and pay for sessions. <span
+                                class="highlight">Get booked faster</span></p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Share Your Client App" class="feature-image">
+                        <h3 class="feature-title">Share Your Client App</h3>
+                        <p class="feature-description">Clients can download the app, book sessions and pay for services.
+                            <span class="highlight">Learn all about it</span>
+                        </p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Check Out Your Shop" class="feature-image">
+                        <h3 class="feature-title">Check Out Your Shop</h3>
+                        <p class="feature-description">Offer memberships and products in a professional online website.
+                            <span class="highlight">Start selling products</span>
+                        </p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Explore the Arbox Marketplace"
+                            class="feature-image">
+                        <h3 class="feature-title">Explore the Arbox Marketplace</h3>
+                        <p class="feature-description">We’ve gathered exclusive offers to help you grow your business.
+                            <span class="highlight">See offers</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="more-features">
+                <h2 class="section-title">More Features Worth Exploring</h2>
+                <div class="grid-container">
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Automations" class="feature-image">
+                        <h3 class="feature-title">Automations</h3>
+                        <p class="feature-description">Save time on repetitive tasks by creating custom automated
+                            workflows.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Integrations" class="feature-image">
+                        <h3 class="feature-title">Integrations</h3>
+                        <p class="feature-description">Connect to industry-leading platforms and manage your business in
+                            one place.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Forms" class="feature-image">
+                        <h3 class="feature-title">Forms</h3>
+                        <p class="feature-description">Create detailed forms for your existing and potential clients to
+                            sign.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Reporting & Analytics" class="feature-image">
+                        <h3 class="feature-title">Reporting & Analytics</h3>
+                        <p class="feature-description">Track your business performance and make decisions driven by
+                            data.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Communication" class="feature-image">
+                        <h3 class="feature-title">Communication</h3>
+                        <p class="feature-description">Send the perfect message at the right time using a suite of
+                            marketing tools.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Finance & Invoices" class="feature-image">
+                        <h3 class="feature-title">Finance & Invoices</h3>
+                        <p class="feature-description">Generate digital invoices to save paper and track your financial
+                            progress.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Task Management" class="feature-image">
+                        <h3 class="feature-title">Task Management</h3>
+                        <p class="feature-description">Track and assign tasks to team members or to yourself.</p>
+                    </a>
+                    <a href="#" class="feature-link">
+                        <img src="https://via.placeholder.com/150" alt="Promo Codes" class="feature-image">
+                        <h3 class="feature-title">Promo Codes</h3>
+                        <p class="feature-description">Incentivize your clients by generating personalized deals and
+                            promo codes.</p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/Dashboard/ShopDashboard.js"></script>
+}

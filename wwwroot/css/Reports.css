@@ -1,0 +1,55 @@
+.list-group-item {
+    display: none; /* Initially hide all items */
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.list-group-item.active {
+    display: flex; /* Show active items */
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef;
+}
+
+.btn-circle {
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: 2px solid #343a40; /* Add a border to distinguish the buttons */
+}
+
+.btn-circle.active {
+    background-color: #343a40;
+    color: white;
+    border: 2px solid #343a40; /* Ensure border color is the same when active */
+}
+
+.btn-circle:focus,
+.btn-circle:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #343a40; /* Add a border to distinguish the buttons */
+}
+
+.btn-circle.active:focus,
+.btn-circle.active:hover {
+    background-color: #343a40;
+    color: white;
+    border: 2px solid #343a40; /* Ensure border color is the same when active */
+}
+
+.text-color {
+    color: black;
+}
+
+.icon {
+    margin-right: 10px;
+    color: blue;
+}

@@ -1,0 +1,204 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/css/Marketing/Automation.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+}
+
+<div>
+    <section id="reminders" class="container">
+        <h2>Reminders</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-bell reminders-icon"></i> 24 hours upcoming appointment reminder</h6>
+                        <p class="card-text">Notifies clients reminding them of their upcoming appointment.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.TwentyFourHourReminder <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="TwentyFourHourReminder">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="TwentyFourHourReminder">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-bell reminders-icon"></i> 1 hour upcoming appointment reminder</h6>
+                        <p class="card-text">Notifies clients reminding them of their upcoming appointment.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.OneHourReminder <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="OneHourReminder">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="OneHourReminder">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment-updates" class="container">
+        <h2>Appointment Updates</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-calendar-check appointments-icon"></i> New appointment</h6>
+                        <p class="card-text">Reach out to clients when their appointment is booked for them.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.NewAppointment <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="NewAppointment">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="NewAppointment">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-calendar-alt appointments-icon"></i> Cancelled appointment</h6>
+                        <p class="card-text">Sends to clients when their appointment start time is canceled.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.CancelledAppointment <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="CancelledAppointment">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="CancelledAppointment">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @* <section id="waitlist-updates" class="container">
+        <h2>Waitlist Updates</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-users waitlist-icon"></i> Joined the waitlist</h6>
+                        <p class="card-text">Automatically sends to clients when they join the waitlist.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.WaitlistJoined <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="WaitlistJoined">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="WaitlistJoined">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-clock waitlist-icon"></i> Time slot available</h6>
+                        <p class="card-text">Automatically sends to clients when a time slot becomes available to book.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.TimeSlotAvailable <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="TimeSlotAvailable">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="TimeSlotAvailable">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> *@
+
+    <section id="increase-bookings" class="container">
+        <h2>Increase Bookings</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-birthday-cake bookings-icon"></i> Celebrate birthdays</h6>
+                        <p class="card-text">Surprise clients on their special day, a proven way to boost client loyalty.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.CelebrateBirthday <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="CelebrateBirthday">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="CelebrateBirthday">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-birthday-cake bookings-icon"></i> Reward loyal clients</h6>
+                        <p class="card-text">Message top spenders and get them even more engaged with a special offer.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.RewardLoyalClients <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="RewardLoyalClients">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="RewardLoyalClients">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> *@
+        </div>
+    </section>
+
+    <section id="celebrate-milestones" class="container container1">
+        <h2>Celebrate Milestones</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"><i class="fas fa-user-plus milestones-icon"></i> Welcome new clients</h6>
+                        <p class="card-text">Celebrate new clients joining your business by offering them a discount.</p>
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="btn btn-primary">
+                                @ViewBag.WelcomeNewClient <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="setDropdownValue(event, 'Enabled')" data-reminder-type="WelcomeNewClient">Enable</a>
+                                <a href="#" onclick="setDropdownValue(event, 'Disabled')" data-reminder-type="WelcomeNewClient">Disable</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/Marketing/Automation.js"></script>
+}

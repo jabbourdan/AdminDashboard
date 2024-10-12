@@ -1,0 +1,159 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Task";
+}
+
+@section Styles {
+    <link href="~/css/Tasks.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}
+
+<main class='project'>
+    <div class='project-info'>
+        <div class="header">
+            <div class="left">
+                <h1>Tasks</h1>
+            </div>
+        </div>
+        <div class='project-participants'>
+            <div class="ant-picker ant-picker-range ant-picker-focused">
+                <div class="ant-picker-input">
+                    <input id="start-date" placeholder="Start date" size="12" value="">
+                </div>
+                <div class="arrow">
+                    <span>&#8594;</span>
+                </div>
+                <div class="ant-picker-input ant-picker-input-active">
+                    <input id="end-date" placeholder="End date" size="12" value="">
+                </div>
+                <div class="ant-picker-active-bar"></div>
+                <span class="ant-picker-clear">
+                    <span role="img" aria-label="close-circle" class="anticon anticon-close-circle">
+                        <svg viewBox="64 64 896 896" focusable="false" data-icon="close-circle" width="1em" height="1em"
+                            fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M685.6 324.4c-8.6-8.6-22.6-8.6-31.2 0L512 466.8 369.6 324.4c-8.6-8.6-22.6-8.6-31.2 0s-8.6 22.6 0 31.2L480.8 498l-142.4 142.4c-8.6 8.6-8.6 22.6 0 31.2s22.6 8.6 31.2 0L512 529.2l142.4 142.4c8.6 8.6 22.6 8.6 31.2 0s8.6-22.6 0-31.2L543.2 498l142.4-142.4c8.6-8.6 8.6-22.6 0-31.2z">
+                            </path>
+                        </svg>
+                    </span>
+                </span>
+                <span class="ant-picker-suffix">
+                    <span role="img" aria-label="submit" class="anticon anticon-submit">
+                        <i class="fas fa-check" id="submit-dates"></i>
+                    </span>
+                </span>
+            </div>
+            <button class='project-participants__add'>Add Task</button>
+        </div>
+    </div>
+    <div class='project-tasks'>
+        <div class='project-column'>
+            <div class='project-column-heading'>
+                <h2 class='project-column-heading__title'>To Do</h2>
+                <button class='project-column-heading__options'><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <!-- Remove all hardcoded task divs here, leaving it empty initially -->
+        </div>
+        <div class='project-column'>
+            <div class='project-column-heading'>
+                <h2 class='project-column-heading__title'>In Progress</h2>
+                <button class='project-column-heading__options'><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <!-- Remove all hardcoded task divs here, leaving it empty initially -->
+        </div>
+        <div class='project-column'>
+            <div class='project-column-heading'>
+                <h2 class='project-column-heading__title'>Done</h2>
+                <button class='project-column-heading__options'><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <!-- Remove all hardcoded task divs here, leaving it empty initially -->
+        </div>
+    </div>
+</main>
+
+<!-- Add Task form -->
+<div id="addTaskSlider" class="slider">
+    <div class="slider-content">
+        <h2>Add New Task</h2>
+        <form id="addTaskForm">
+            <label for="taskTitle">Title</label>
+            <input type="text" id="taskTitle" name="taskTitle" required>
+
+            <label for="taskAssignTo">Assign To</label>
+            <select id="taskAssignTo" name="taskAssignTo">
+                <option value="">Select Crew Member</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+
+            <label for="taskEndTime">End Time To Do</label>
+            <input type="datetime-local" id="taskEndTime" name="taskEndTime" required>
+
+            <label for="taskCategory">Category</label>
+            <input type="text" id="taskCategory" name="taskCategory" required>
+
+            <label for="taskColor">Category Color</label>
+            <input type="color" id="taskColor" name="taskColor" value="#03a9f4" required>
+
+            <label for="taskStatus">Status</label>
+            <select id="taskStatus" name="taskStatus" required>
+                <option value="">Select Status</option>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+            </select>
+
+            <button type="submit">Add Task</button>
+            <button type="button" id="closeSlider" class="cancel-btn">Cancel</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Edit Task form -->
+<div id="editTaskSlider" class="slider">
+    <div class="slider-content">
+        <h2>Add New Task</h2>
+        <form id="editTaskForm">
+            <label for="taskTitle">Title</label>
+            <input type="text" id="taskTitle" name="taskTitle" required>
+
+            <label for="taskAssignTo">Assign To</label>
+            <select id="taskAssignTo" name="taskAssignTo">
+                <option value="">Select Crew Member</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+
+            <label for="taskEndTime">End Time To Do</label>
+            <input type="datetime-local" id="taskEndTime" name="taskEndTime" required>
+
+            <label for="taskCategory">Category</label>
+            <input type="text" id="taskCategory" name="taskCategory" required>
+
+            <label for="taskColor">Category Color</label>
+            <input type="color" id="taskColor" name="taskColor" value="#03a9f4" required>
+
+            <label for="taskStatus">Status</label>
+            <select id="taskStatus" name="taskStatus" required>
+                <option value="">Select Status</option>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+            </select>
+
+            <button type="submit">Edit Task</button>
+            <button type="button" id="cancelEdit" class="cancel-btn">Cancel</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+
+    <script src="~/js/Tasks/Tasks.js"></script>
+    <script src="~/js/Tasks/AddTasks.js"></script>
+}

@@ -1,0 +1,124 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Stock";
+}
+
+@section Styles {
+    <link href="~/css/Stock.css" rel="stylesheet" />
+    <link href="~/css/Members.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11.1.3/swiper-bundle.min.css" rel="stylesheet">
+}
+<main>
+    <div class="header">
+        <div class="left">
+            <h1>Stock</h1>
+            <div></div><button id="create-user-button" class="create-user-button">Add new Category</button>
+        </div>
+    </div>
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Beauty Equipment</h2>
+                        <p class="description">High-quality equipment for salons and beauty centers.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Salon Furniture</h2>
+                        <p class="description">Comfortable and stylish furniture for beauty salons.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Beauty Tools</h2>
+                        <p class="description">Essential tools for hair, nail, and skin care.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Beauty Products</h2>
+                        <p class="description">A range of beauty products for hair, skin, and nails.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Salon Accessories</h2>
+                        <p class="description">Accessories to enhance your salon's services and ambiance.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Sterilizers</h2>
+                        <p class="description">Sterilization equipment to maintain hygiene standards.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="/Photos/Inventory/Stock/machine.jpeg" alt="" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Spa Equipment</h2>
+                        <p class="description">Equipment for spa treatments and relaxation services.</p>
+                        <button class="button">View more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.3/swiper-bundle.min.js"></script>
+    <script src="~/js/Stock.js"></script>
+}

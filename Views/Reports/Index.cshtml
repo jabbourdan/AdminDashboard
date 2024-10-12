@@ -1,0 +1,186 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Reports";
+}
+
+@section Styles {
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="~/CSS/Reports.css" rel="stylesheet" />
+}
+
+<main>
+    <div class="header">
+            <div class="left">
+                <h1>Reports and Analytics</h1>
+            </div>
+        </div>
+        <div class="my-3">
+            <input type="text" class="form-control" placeholder="Search by report name or description">
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <button class="btn btn-circle active" id="all-reports-btn">All Reports</button>
+                <button class="btn btn-circle" id="sales-reports-btn">Sales</button>
+                <button class="btn btn-circle" id="finance-reports-btn">Finance</button>
+                <button class="btn btn-circle" id="appointments-reports-btn">Appointments</button>
+                <button class="btn btn-circle" id="team-reports-btn">Team</button>
+                <button class="btn btn-circle" id="clients-reports-btn">Clients</button>
+                <button class="btn btn-circle" id="inventory-reports-btn">Inventory</button>
+            </div>
+        </div>
+        <div class="list-group">
+            <!-- Sales Reports -->
+            <a href="#" class="list-group-item list-group-item-action sales-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-chart-line icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Gifts cards</h5>
+                        <p class="mb-1 text-color">Summary of gift card sales.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action sales-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-chart-line icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Discount summary</h5>
+                        <p class="mb-1 text-color">Summary of discounts applied.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Finance Reports -->
+            <a href="#" class="list-group-item list-group-item-action finance-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-dollar-sign icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Payment summary</h5>
+                        <p class="mb-1 text-color">Summary of payments received.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action finance-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-dollar-sign icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Cash flow summary</h5>
+                        <p class="mb-1 text-color">Summary of cash flow.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Appointments Reports -->
+            <a href="#" class="list-group-item list-group-item-action appointments-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Appointment list</h5>
+                        <p class="mb-1 text-color">List of all appointments.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action appointments-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Appointment Cancel</h5>
+                        <p class="mb-1 text-color">List of cancelled appointments.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action appointments-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Appointment No shows</h5>
+                        <p class="mb-1 text-color">List of appointments with no shows.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action appointments-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Appointment Wait list</h5>
+                        <p class="mb-1 text-color">List of appointments on wait list.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Team Reports -->
+            <a href="#" class="list-group-item list-group-item-action team-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-users icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Team List</h5>
+                        <p class="mb-1 text-color">List of team members.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action team-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-users icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Working hour summary</h5>
+                        <p class="mb-1 text-color">Summary of team working hours.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action team-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-users icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Break Activity</h5>
+                        <p class="mb-1 text-color">Summary of team break activities.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Clients Reports -->
+            <a href="#" class="list-group-item list-group-item-action clients-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-user-friends icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Client List</h5>
+                        <p class="mb-1 text-color">List of clients.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action clients-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-user-friends icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Membership list</h5>
+                        <p class="mb-1 text-color">List of memberships.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Inventory Reports -->
+            <a href="#" class="list-group-item list-group-item-action inventory-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-boxes icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Stocks on hand</h5>
+                        <p class="mb-1 text-color">Summary of stocks on hand.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action inventory-reports">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-boxes icon"></i>
+                    <div>
+                        <h5 class="mb-1 text-color">Product List</h5>
+                        <p class="mb-1 text-color">List of products.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+</main>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/Reports.js"></script>
+}

@@ -1,0 +1,21 @@
+@{
+    ViewBag.Title = "Send WhatsApp Message";
+}
+
+<h2>Send WhatsApp Message</h2>
+
+<!-- Form for entering the phone number -->
+<form id="antiForgeryForm">
+    <div>
+        <label for="to">Recipient Phone Number (WhatsApp):</label>
+        <input type="text" id="to" name="to" placeholder="whatsapp:+1234567890" required />
+    </div>
+    
+    <button id="sendMessageBtn" class="btn btn-primary">Send WhatsApp Message</button>
+</form>
+
+<!-- Area to display the result of the message sending -->
+<div id="statusMessage"></div>
+
+<!-- Include the JavaScript file for handling the form submission -->
+<script src="~/js/sendMessage.js"></script>

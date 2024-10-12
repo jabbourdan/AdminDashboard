@@ -1,0 +1,325 @@
+@model UI_USM_MVC.Models.Crew
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Add Crew";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/css/Members/Members.css" rel="stylesheet" />
+}
+
+<main>
+    <div class="container-fluid px-0">
+        <div class="row mx-0">
+            <div class="col-12 p-4 content1">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Add a new Crew member</h2>
+                </div>
+                <div class="top-nav mb-4">
+                    <a href="#profile-section" class="active"><i class='bx bx-user'></i>Profile</a>
+                    <a href="#addresses-section"><i class='bx bx-building-house'></i>Addresses</a>
+                    @* <a href="#"><i class='bx bxs-credit-card'></i>subscription</a> *@
+                    <a href="#settings-section"><i class='bx bx-cog'></i>Settings</a>
+                </div>
+
+                <!-- Start the form here -->
+                <form id="clientForm">
+                    <div id="profile-section" class="section">
+                        <h4>Profile</h4>
+                        <p>Manage your Crew's personal profile</p>
+
+                        <div class="row compact-form">
+                            <div class="col-md-12">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="firstName">First name</label>
+                                        <input type="text" class="form-control" id="firstName" name="FirstName"
+                                            placeholder="e.g. John" required>
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="lastName">Last name</label>
+                                        <input type="text" class="form-control" id="lastName" name="LastName"
+                                            placeholder="e.g. Hancock" required>
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-1">
+                                        <label for="day">Day</label>
+                                        <input type="number" class="form-control form-control-sm" id="day" name="Day"
+                                            placeholder="DD" min="1" max="31">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="month">Month</label>
+                                        <input type="number" class="form-control form-control-sm" id="month"
+                                            name="Month" placeholder="MM" min="1" max="12">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="year">Year</label>
+                                        <input type="number" class="form-control form-control-sm" id="year" name="Year"
+                                            placeholder="YYYY">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control form-control-sm" id="gender" name="Gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="Email"
+                                            placeholder="e.g. johnhancock@gmail.com">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="phone">Phone</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <select class="custom-select" id="countryCode" name="CountryCode">
+                                                    <option value="1">+1 (USA)</option>
+                                                    <option value="44">+44 (UK)</option>
+                                                    <option value="91">+91 (India)</option>
+                                                    <option value="972" selected>+972 (Israel)</option>
+                                                </select>
+                                            </div>
+                                            <input type="text" class="form-control" id="Mobile" name="Mobile"
+                                                placeholder="e.g. 123 567 8901" required>
+                                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Addresses Section -->
+                    <div id="addresses-section" class="section" style="display:none;">
+                        <h4>Addresses</h4>
+                        <p>Manage your Crew's addresses</p>
+                        <div class="row compact-form">
+                            <div class="col-md-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="address1">Address 1</label>
+                                        <input type="text" class="form-control" id="address1" name="Address1"
+                                            placeholder="e.g. 123 Main St">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="address2">Address 2</label>
+                                        <input type="text" class="form-control" id="address2" name="Address2"
+                                            placeholder="e.g. Apt./Suite/etc.">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" name="City"
+                                            placeholder="e.g. New York">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="state">State</label>
+                                        <input type="text" class="form-control" id="state" name="State"
+                                            placeholder="e.g. NY">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="zip">Zip</label>
+                                        <input type="text" class="form-control" id="zip" name="Zip"
+                                            placeholder="e.g. 10001">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="country">Country</label>
+                                        <select class="form-control" id="country" name="Country">
+                                            <option value="usa">USA</option>
+                                            <option value="uk">UK</option>
+                                            <option value="india">India</option>
+                                            <option value="israel">Israel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div id="settings-section" class="section" style="display:none;">
+                        <h4>Settings</h4>
+                        <p>Manage your Crew's settings</p>
+                        <div class="row compact-form">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="send-email-notifications"
+                                            name="SendEmailNotifications" checked>
+                                        <label class="form-check-label" for="send-email-notifications">
+                                            Send notifications
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notification-preferences">Notification Preferences</label>
+                                    <select class="form-control" id="notification-preferences"
+                                        name="PreferedNottification">
+                                        <option value="none">None</option>
+                                        <option value="email">Email</option>
+                                        <option value="sms">SMS</option>
+                                        <option value="whatsapp">WhatsApp</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="form-row bottom-buttons justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary"
+                            onclick="window.location.href='@Url.Action("Index", "MembersCrew")'">Close</button>
+                        <button type="button" id="saveClient" class="btn btn-primary btn-save">Save</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/js/MembersCrew/addCrew.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.11/dist/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            initPage(); // Initialize the page by setting up navigation and save functionality
+        });
+
+        // Function to initialize the page
+        function initPage() {
+            handleNavigation();  // Set up the navigation between sections
+            handleFormSubmission();  // Set up form submission handling
+            showDefaultSection();  // Show the default section when the page loads
+        }
+
+        // Function to handle the navigation between sections
+        function handleNavigation() {
+            $('.top-nav a').on('click', function (e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                $('.top-nav a').removeClass('active'); // Remove active class from all nav links
+                $(this).addClass('active'); // Add active class to the clicked nav link
+
+                $('.section').hide(); // Hide all sections
+                $($(this).attr('href')).show(); // Show the targeted section
+            });
+        }
+
+        // Function to show the profile section by default
+        function showDefaultSection() {
+            $('#profile-section').show(); // Show the profile section by default
+        }
+
+        // Function to handle form submission
+        function handleFormSubmission() {
+            $('#saveClient').on('click', function (e) {
+                e.preventDefault();  // Prevent default form submission behavior
+
+                var formData = {
+                    FirstName: $('#firstName').val(),
+                    LastName: $('#lastName').val(),
+                    Day: $('#day').val() || null,
+                    Month: $('#month').val() || null,
+                    Year: $('#year').val() || null,
+                    Gender: $('#gender').val(),
+                    Email: $('#email').val(),
+                    Mobile: $('#Mobile').val(),
+                    Address1: $('#address1').val(),
+                    Address2: $('#address2').val(),
+                    City: $('#city').val(),
+                    State: $('#state').val(),
+                    Zip: $('#zip').val(),
+                    Country: $('#country').val(),
+                    orgId: 1  // Static orgId for now
+                };
+
+                submitForm(formData);  // Call the function to handle the form submission with the form data
+            });
+        }
+
+        // Function to handle form submission via AJAX
+        function submitForm(formData) {
+            $.ajax({
+                url: '@Url.Action("AddCrew", "MembersCrew")',  // The URL to submit the form data
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),  // Send the form data as JSON
+                success: function (response) {
+                    if (response.success) {
+                        // Call the sendWelcomeMessage function to send a message to the added crew member's mobile number
+                        sendWelcomeMessage(formData.Mobile, formData.FirstName);
+
+                        // Redirect to the client list (Index) if successful
+                        window.location.href = response.redirectUrl;
+                    } else {
+                        handleFormErrors(response);  // Handle errors if form submission fails
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('An error occurred while saving the Crew Member.');
+                }
+            });
+        }
+
+        // Function to send a welcome message using AJAX with mobile formatting
+        function sendWelcomeMessage(mobile, firstName) {
+            // Remove any non-numeric characters from the mobile number
+            var cleanedMobile = mobile.replace(/\D/g, '');
+
+            // If the number starts with '0', remove the leading '0'
+            if (cleanedMobile.startsWith('0')) {
+                cleanedMobile = cleanedMobile.substring(1);
+            }
+
+            // Format the mobile number with the Israel country code
+            var to = "whatsapp:+972" + cleanedMobile;
+
+            var message = `Hello ${firstName}, welcome to our crew!`;
+
+            $.ajax({
+                url: '/Marketing/SendWhatsAppMessage',  // Endpoint to send the WhatsApp message (or SMS)
+                type: 'POST',
+                data: { to: to, message: message },  // Sending the formatted mobile number and message
+                success: function (response) {
+                    if (response.success) {
+                        console.log('Welcome message sent successfully to ' + to);
+                    } else {
+                        console.log('Failed to send message: ' + response.error);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error while sending message:', error);
+                }
+            });
+        }
+
+        // Function to handle form errors
+        function handleFormErrors(response) {
+            if (response.errors) {
+                var errorList = response.errors.join('\n');  // Join errors into a string
+                alert('Validation Errors:\n' + errorList);  // Show validation errors
+            } else {
+                alert('An error occurred: ' + response.message);  // Show general error message
+            }
+        }
+
+    </script>
+}

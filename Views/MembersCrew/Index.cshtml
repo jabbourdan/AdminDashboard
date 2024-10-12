@@ -1,0 +1,163 @@
+@model IEnumerable<UI_USM_MVC.Models.Crew>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Member";
+}
+
+@section Styles {
+    <link href="~/CSS/MembersCrew/MembersCrew.css" rel="stylesheet" />
+}
+
+<main>
+    <div class="header">
+        <div class="left">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showTab('Team_details', event)">Team</button>
+                <button class="tab-button" onclick="showTab('Shifts', event)">Shifts</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="Team_details" class="tab-content active">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="h4">Crew list <span class="badge bg-secondary" id="clientCount">@Model.Count()</span></h1>
+            <div>
+                <button class="btn btn-outline-secondary me-2">Options</button>
+                <button class="btn btn-dark" onclick="location.href='@Url.Action("AddCrew", "MembersCrew")'">Add</button>
+            </div>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+            <div class="input-group" style="width: 70%;">
+                <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" id="searchInput"
+                    placeholder="Search by name, email or mobile number">
+            </div>
+            <button class="btn btn-outline-secondary">Filters</button>
+            <select class="form-select" style="width: 20%;">
+                <option>Created at (newest first)</option>
+            </select>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllCheckbox"></th>
+                    <th>Crew name</th>
+                    <th>Mobile number</th>
+                    <th>Job Title</th>
+                    <th>Status</th>
+                    <th>Created at</th>
+
+                </tr>
+            </thead>
+            <tbody id="clientsTableBody">
+                @foreach (var crew in Model)
+                {
+                    <tr>
+                        <td><input type="checkbox" class="client-checkbox"></td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="client-avatar me-2">@(!string.IsNullOrEmpty(crew.FirstName) ?
+                                crew.FirstName[0].ToString() : "")</div>
+                                <div>
+                                    <div class="client-name" id="name">@crew?.FirstName @crew?.LastName</div>
+                                    <div class="text-muted client-email" id="email">@crew?.Email</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="client-mobile" id="mobile">@crew?.Mobile</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>@DateTime.Now.ToString("dd MMM yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="Shifts" class="tab-content">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="h4">Scheduled Shifts</h1>
+            <div class="d-flex align-items-center week-controls" id="week-controls" style="display: none;">
+                <button id="prev-week" class="btn btn-light">&lt;</button>
+                <button id="this-week" class="btn btn-light">This week</button>
+                <span id="week-dates">9 - 15 Jun, 2024</span>
+                <button id="next-week" class="btn btn-light">&gt;</button>
+                <button id="add-button" class="btn btn-primary ml-3">Add</button>
+            </div>
+        </div>
+
+        <table class="schedule-table rounded">
+            <thead>
+                <tr>
+                    <th rowspan="2">Team member <a href="#">Change</a></th>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+                <tr id="dates-row">
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jabbour Dandan <i class="mdi mdi-pencil"><i class="fas fa-pen"></i></i></td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 17:00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Wendy Smith <i class="mdi mdi-pencil"><i class="fas fa-pen"></i></i></td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 19:00</div>
+                    </td>
+                    <td>
+                        <div class="shift">10:00 - 17:00</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/js/MembersCrew/MembersCrew.js"></script>
+    <script src="~/js/Members/Members.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+}

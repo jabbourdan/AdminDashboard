@@ -1,0 +1,154 @@
+.dashboard {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    color: var(--dark);
+    position: relative;
+}
+
+.card, .card-2 {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.no-appointment, .no-tasks, .no-services {
+    color: var(--dark);
+    text-align: center;
+}
+
+.add-appointment {
+    color: var(--primary);
+    cursor: pointer;
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.filter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: var(--primary);
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+.service-messaging {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card-2 {
+    height: 295px;
+}
+
+.no-services {
+    color: var(--dark);
+    text-align: center;
+}
+
+.add-appointment {
+    color: var(--primary);
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .card, .card-2 {
+        height: auto;
+    }
+}
+
+
+
+/* Set a fixed height for the calendar and make it scrollable */
+.scrollable {
+    height: 300px; /* Adjust this value to your desired height */
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 10px;
+}
+
+/* Ensure the event items take the full width of the container */
+.event-item {
+    display: block;         /* Make the event take the full width */
+    width: 100%;            /* Ensure the event spans the full width of the container */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Add a background color for clarity */
+    word-wrap: break-word;   /* Ensure long words break to the next line */
+}
+
+
+/* Reusable class for both tasks and events */
+.list-item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+
+.service-item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+
+
+/* Styling for the communication counter */
+.communication-counter {
+    font-size: 48px;  /* Large scale */
+    font-weight: bold;
+    color: var(--dark);
+}
+
+/* Styling for the counter text */
+#counter {
+    font-size: 56px;  /* Larger for the number */
+    color: #4CAF50;   /* Green color for the counter */
+}

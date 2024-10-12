@@ -1,0 +1,64 @@
+/* Basic styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h2 {
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group small {
+    color: #6c757d;
+    display: block;
+    margin-top: 5px;
+}
+
+.form-group .char-counter {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+/* Styling for the add variant button */
+.add-variant-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Advanced options link */
+.advanced-options {
+    color: #6c63ff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}

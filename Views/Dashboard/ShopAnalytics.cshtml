@@ -1,0 +1,115 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+
+@section Styles {
+    <link href="~/CSS/Dashboard/ShopDashboard.css" rel="stylesheet" />
+}
+
+<main>
+    <div class="header">
+        <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="@Url.Action("Index", "Dashboard")" class="link-button">Analytics</a>
+                </li>
+                /
+                <li>
+                    <a href="@Url.Action("ShopAnalytics", "Dashboard")" class="link-button active">Shop</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Insights -->
+    <ul class="insights">
+        <li class="insight-item action-hover">
+            <i class='bx bx-calendar-check'></i>
+            <span class="info">
+                <h3>
+                    1,074
+                </h3>
+                <p>Total sales</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-show-alt'></i>
+            <span class="info">
+                <h3>
+                    3,944
+                </h3>
+                <p>Sales growth</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-line-chart'></i>
+            <span class="info">
+                <h3>
+                    14,721
+                </h3>
+                <p>Cash flow</p>
+            </span>
+        </li>
+        <li class="insight-item action-hover">
+            <i class='bx bx-dollar-circle'></i>
+            <span class="info">
+                <h3>
+                    $6,742
+                </h3>
+                <p>Top product</p>
+            </span>
+        </li>
+    </ul>
+    <!-- End of Insights -->
+    <div class="bottom-data">
+        <div class="orders">
+            <div class="header">
+                <i class='bx bx-receipt'></i>
+                <h3>Recent Orders</h3>
+                <i class='bx bx-filter'></i>
+                <i class='bx bx-search'></i>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="images/avatar.png">
+                            <p>John Doe</p>
+                        </td>
+                        <td>14-08-2023</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/avatar.png">
+                            <p>John Doe</p>
+                        </td>
+                        <td>14-08-2023</td>
+                        <td><span class="status pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/avatar.png">
+                            <p>John Doe</p>
+                        </td>
+                        <td>14-08-2023</td>
+                        <td><span class="status process">Processing</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/Dashboard/ShopDashboard.js"></script>
+}
