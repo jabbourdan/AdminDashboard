@@ -18,11 +18,6 @@ public class MarketingController : Controller
     public MarketingController(ApplicationDbContext context)
     {
         _context = context;
-        Console.WriteLine("------------------------------------------");
-        Console.WriteLine("------------------------------------------");
-        Console.WriteLine("------------------------------------------");
-        
-        Console.WriteLine($"TWILIO_ACCOUNT_SID: {Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID")}");
         // Access the Twilio settings from environment variables
         accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID") ?? throw new ArgumentNullException("Twilio Account SID is missing from environment variables");
         authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN") ?? throw new ArgumentNullException("Twilio Auth Token is missing from environment variables");
