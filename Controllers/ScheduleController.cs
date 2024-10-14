@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using UI_USM_MVC.Data;
 using System.Threading.Tasks.Dataflow;
 using System.Globalization;
+using UI_USM_MVC.ExternalService;
 
 namespace UI_USM_MVC.Controllers
 {
@@ -11,11 +12,13 @@ namespace UI_USM_MVC.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly ReminderService _reminderService;
 
-        public ScheduleController(ApplicationDbContext context,IConfiguration configuration)
+        public ScheduleController(ApplicationDbContext context,IConfiguration configuration, ReminderService reminderService)
         {
             _context = context;
             _configuration = configuration;
+            _reminderService = reminderService;
         }
 
         public IActionResult Index()
@@ -125,7 +128,7 @@ namespace UI_USM_MVC.Controllers
                     var message = isUpdate ? CreateUpdateEventMessage(eventObj, clientName) // Message for updating an event
                         : CreateEventMessage(eventObj, clientName);      // Message for creating an event
 
-                    CheckAndSendMessage(eventObj.OrgId, clientPhoneNumber, message);
+                    CheckAndSendMessage(eventObj, clientPhoneNumber, message);
                 }
                 else
                 {
@@ -136,12 +139,12 @@ namespace UI_USM_MVC.Controllers
 
 
         // 3. Check if the message is allowed and send if applicable
-        private void CheckAndSendMessage(int? orgId, string clientPhoneNumber, string message)
+        private void CheckAndSendMessage(Events obj, string clientPhoneNumber, string message)
         {
             var marketingController = new MarketingController(_context);
 
             // Await the CheckAllowedMessage since it might involve asynchronous database checks
-            var isAllowedToSendMessage = marketingController.CheckAllowedMessage(orgId ?? 1, "NewAppointment");
+            var isAllowedToSendMessage = marketingController.CheckAllowedMessage(obj.OrgId ?? 1, "NewAppointment"); // change the org id
 
             var responseCheckAllowed = isAllowedToSendMessage as JsonResult;
             if (responseCheckAllowed != null)
@@ -157,6 +160,9 @@ namespace UI_USM_MVC.Controllers
                     if (jsonSendMessage != null && jsonSendMessage?.success == true)
                     {
                         Console.WriteLine("Message sent successfully.");
+
+                        // Schedule a reminder 1 hour before the event start time using Hangfire
+                         _reminderService.ScheduleReminder(clientPhoneNumber, obj.Start);
                     }
                     else
                     {
@@ -173,6 +179,9 @@ namespace UI_USM_MVC.Controllers
                 Console.WriteLine("Failed to check message allowance.");
             }
         }
+
+
+
         // Helper function to create the update event message
         private string CreateUpdateEventMessage(Events updatedEvent, string clientName)
         {

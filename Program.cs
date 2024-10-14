@@ -6,6 +6,7 @@ using UI_USM_MVC.Data;
 using Hangfire;
 using Hangfire.MySql;
 using DotNetEnv;
+using UI_USM_MVC.ExternalService;  // Add the namespace where ReminderService is located
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ Env.Load();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register the ReminderService in the DI container
+builder.Services.AddTransient<ReminderService>();  // Register ReminderService
 
 // Configure MySQL and Hangfire storage
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -25,15 +29,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 // Configure Hangfire with MySQL storage
-builder.Services.AddHangfire(config =>
-    config.UseStorage(new MySqlStorage(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlStorageOptions
-        {
-             // Optional: prefix for the Hangfire-related tables in your database
-        }
-    ))
-);
+builder.Services.AddHangfire((sp, config) =>
+{
+    var connectionString = sp.GetRequiredService<IConfiguration>().GetConnectionString("DefaultConnection");
+    config.UseStorage(new MySqlStorage(connectionString, new MySqlStorageOptions
+    {
+        TablesPrefix = "Hangfire_"  // Optional, specify the table prefix if needed
+    }));
+});
 
 // Add the Hangfire server for background job processing
 builder.Services.AddHangfireServer();
