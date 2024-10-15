@@ -197,7 +197,7 @@ namespace UI_USM_MVC.Controllers
         }
 
         // Helper function to format the phone number
-        private string FormatPhoneNumber(string mobile)
+        public string FormatPhoneNumber(string mobile)
         {
             // Check if the phone number starts with '0'
             if (mobile.StartsWith("0"))
