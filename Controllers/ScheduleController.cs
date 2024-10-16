@@ -14,7 +14,7 @@ namespace UI_USM_MVC.Controllers
         private readonly IConfiguration _configuration;
         private readonly ReminderService _reminderService;
 
-        public ScheduleController(ApplicationDbContext context,IConfiguration configuration, ReminderService reminderService)
+        public ScheduleController(ApplicationDbContext context, IConfiguration configuration, ReminderService reminderService)
         {
             _context = context;
             _configuration = configuration;
@@ -145,8 +145,14 @@ namespace UI_USM_MVC.Controllers
 
             // Await the CheckAllowedMessage since it might involve asynchronous database checks
             var isAllowedToSendMessage = marketingController.CheckAllowedMessage(obj.OrgId ?? 1, "NewAppointment"); // change the org id
+            var isAllowedToSendSchudleMessageFor1Hour = marketingController.CheckAllowedMessage(obj.OrgId ?? 1, "OneHourReminder");
+            var isAllowedToSendSchudleMessageFor24Hour = marketingController.CheckAllowedMessage(obj.OrgId ?? 1, "TwentyFourHourReminder");
 
+            // Convert for JSON
+            var responseSendSchudleMessageFor1Hour = isAllowedToSendSchudleMessageFor1Hour as JsonResult;
+            var responseSendSchudleMessageFor24Hour = isAllowedToSendSchudleMessageFor24Hour as JsonResult;
             var responseCheckAllowed = isAllowedToSendMessage as JsonResult;
+
             if (responseCheckAllowed != null)
             {
                 var jsonResponseCheckAllowed = responseCheckAllowed.Value as dynamic;
@@ -160,9 +166,35 @@ namespace UI_USM_MVC.Controllers
                     if (jsonSendMessage != null && jsonSendMessage?.success == true)
                     {
                         Console.WriteLine("Message sent successfully.");
+                        var jsonResponseSendSchudleMessageFor1Hour = responseSendSchudleMessageFor1Hour.Value as dynamic;
+                        var jsonResponseSendSchudleMessageFor24Hour = responseSendSchudleMessageFor24Hour.Value as dynamic;
 
                         // Schedule a reminder 1 hour before the event start time using Hangfire
-                         _reminderService.ScheduleReminder(clientPhoneNumber, obj.Start);
+                        if (jsonResponseSendSchudleMessageFor1Hour?.success == true && jsonResponseSendSchudleMessageFor1Hour?.isAllowed == true)
+                        {
+                            // Calculate the time difference between now and the event start time
+                            TimeSpan timeUntilEvent = obj.Start - DateTime.Now;
+                            
+                            // Check if the event is more than 1 hour away
+                            if (timeUntilEvent.TotalHours > 1)
+                            {
+                                // Schedule the reminder 1 hour before the event
+                                _reminderService.ScheduleReminder(obj.ClientName, clientPhoneNumber, obj.Start, 1);
+                            }
+                        }
+                        if (jsonResponseSendSchudleMessageFor24Hour?.success == true && jsonResponseSendSchudleMessageFor24Hour?.isAllowed == true)
+                        {
+                            // Calculate the time difference between now and the event start time
+                            TimeSpan timeUntilEvent = obj.Start - DateTime.Now;
+
+                            // Check if the event is more than 24 hours away
+                            if (timeUntilEvent.TotalHours > 24)
+                            {
+                                // Schedule the reminder 24 hours before the event
+                                _reminderService.ScheduleReminder(obj.ClientName, clientPhoneNumber, obj.Start, 24);
+                            }
+                        }
+
                     }
                     else
                     {
@@ -197,7 +229,7 @@ namespace UI_USM_MVC.Controllers
         }
 
         // Helper function to format the phone number
-        public string FormatPhoneNumber(string mobile)
+        private string FormatPhoneNumber(string mobile)
         {
             // Check if the phone number starts with '0'
             if (mobile.StartsWith("0"))
