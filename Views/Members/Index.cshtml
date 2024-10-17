@@ -7,6 +7,21 @@
 
 @section Styles {
     <link href="~/css/Members/Members.css" rel="stylesheet" />
+    <style>
+        /* Style for the three dots and dropdown */
+        .dropdown-menu {
+            position: absolute;
+            z-index: 1000;
+            display: none;
+        }
+        .show-dropdown {
+            display: block;
+        }
+        .three-dots {
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
 }
 
 <main>
@@ -38,6 +53,7 @@
                     <th>Reviews</th>
                     <th>Sales</th>
                     <th>Created at</th>
+                    <th>Actions</th> <!-- New column for actions -->
                 </tr>
             </thead>
             <tbody id="clientsTableBody">
@@ -58,6 +74,16 @@
                         <td>-</td>
                         <td>-</td>
                         <td>@DateTime.Now.ToString("dd MMM yyyy")</td>
+                        <td>
+                            <!-- New actions column with three dots -->
+                            <div class="dropdown">
+                                <span class="three-dots">...</span>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("EditClient", "Members", new { id = client.ClientId })">Edit</a>
+                                    <a class="dropdown-item delete-client" href="javascript:void(0)" data-client-id="@client.ClientId">Delete</a>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
