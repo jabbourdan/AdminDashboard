@@ -14,7 +14,7 @@ namespace UI_USM_MVC.Data
         public DbSet<Tasks> Tasks { get; set; }
         public DbSet<Services> Services { get; set; }
 
-        public DbSet<Coupon> Coupons { get; set; }
+        public DbSet<Coupons> Coupons { get; set; }
 
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
@@ -35,7 +35,7 @@ namespace UI_USM_MVC.Data
                 .HasKey(e => e.ServicesId);
             modelBuilder.Entity<Tasks>()
                 .HasKey(e => e.TaskId);
-            modelBuilder.Entity<Coupon>()
+            modelBuilder.Entity<Coupons>()
                 .HasKey(e => e.CouponId);
         }
         

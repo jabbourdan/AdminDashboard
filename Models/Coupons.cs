@@ -1,6 +1,6 @@
 namespace UI_USM_MVC.Models
 {
-    public class Coupon
+    public class Coupons
     {
         public int CouponId { get; set; }
         public int ClientId { get; set; }  // Foreign key to Client

@@ -71,6 +71,7 @@ using (var scope = app.Services.CreateScope())
 {
     var birthdayService = scope.ServiceProvider.GetRequiredService<BirthdayService>();
     BackgroundJob.Enqueue(() => birthdayService.SendBirthdayCoupons());
+    //birthdayService.ScheduleMonthlyBirthdayCheck(); 
 }
 
 app.Run();

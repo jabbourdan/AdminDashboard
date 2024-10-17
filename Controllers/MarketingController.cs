@@ -123,11 +123,9 @@ public class MarketingController : Controller
         // Find the organization based on the orgId
         var organization = _context.Organization.FirstOrDefault(o => o.OrgId == orgId);
 
-        Console.Write("----------------------------" + organization);
         if (organization != null)
         {
             bool isAllowed = false; // Default to not allowed
-
             // Check the relevant flag based on the messageType parameter
             switch (messageType)
             {
@@ -145,6 +143,9 @@ public class MarketingController : Controller
                     break;
                 case "TwentyFourHourReminder":
                     isAllowed = organization.TwentyFourHourReminder;
+                    break;
+                case "CelebrateBirthday":
+                    isAllowed = organization.CelebrateBirthday;
                     break;
                     // Add more cases here if needed
             }
