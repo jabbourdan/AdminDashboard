@@ -6,7 +6,7 @@ using UI_USM_MVC.Data;
 using Hangfire;
 using Hangfire.MySql;
 using DotNetEnv;
-using UI_USM_MVC.ExternalService;  // Add the namespace where ReminderService is located
+using UI_USM_MVC.ExternalService;  // Add the namespace where ReminderService and BirthdayService are located
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +15,10 @@ Env.Load();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register the ReminderService in the DI container
-builder.Services.AddTransient<ReminderService>();  // Register ReminderService
+// Register the services as Scoped since they rely on ApplicationDbContext (which is also Scoped)
+builder.Services.AddScoped<ReminderService>();
+builder.Services.AddScoped<BirthdayService>();
+builder.Services.AddScoped<CouponService>(); // Assuming CouponService handles coupon logic
 
 // Configure MySQL and Hangfire storage
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -63,5 +65,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+// Trigger the SendBirthdayCoupons job immediately when the application starts by creating a new scope
+using (var scope = app.Services.CreateScope())
+{
+    var birthdayService = scope.ServiceProvider.GetRequiredService<BirthdayService>();
+    BackgroundJob.Enqueue(() => birthdayService.SendBirthdayCoupons());
+}
 
 app.Run();

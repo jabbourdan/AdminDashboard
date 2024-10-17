@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UI_USM_MVC.Models;
-
+using UI_USM_MVC.ExternalService;
 namespace UI_USM_MVC.Data
 {
     public class ApplicationDbContext : DbContext
@@ -13,6 +13,8 @@ namespace UI_USM_MVC.Data
         public DbSet<Organization> Organization { get; set; }
         public DbSet<Tasks> Tasks { get; set; }
         public DbSet<Services> Services { get; set; }
+
+        public DbSet<Coupon> Coupons { get; set; }
 
         
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
@@ -33,6 +35,8 @@ namespace UI_USM_MVC.Data
                 .HasKey(e => e.ServicesId);
             modelBuilder.Entity<Tasks>()
                 .HasKey(e => e.TaskId);
+            modelBuilder.Entity<Coupon>()
+                .HasKey(e => e.CouponId);
         }
         
     }
