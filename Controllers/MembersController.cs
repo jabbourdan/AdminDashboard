@@ -80,6 +80,31 @@ public class MembersController : Controller
     }
 
 
+    [HttpPost]
+    public JsonResult DeleteClient(int clientId)
+    {
+        try
+        {
+            // Find the client by clientId in the database
+            var client = _context.Client.FirstOrDefault(c => c.ClientId == clientId);
 
+            if (client == null)
+            {
+                return Json(new { success = false, message = "Client not found." });
+            }
+
+            // Remove the client from the database
+            _context.Client.Remove(client);
+            _context.SaveChanges(); // Save the changes to the database
+
+            // Return success response
+            return Json(new { success = true });
+        }
+        catch (Exception ex)
+        {
+            // Return failure response with the error message
+            return Json(new { success = false, message = ex.Message });
+        }
+    }
 
 }

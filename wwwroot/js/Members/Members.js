@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
           .textContent.toLowerCase();
         row.style.display =
           name.includes(filter) ||
-            email.includes(filter) ||
-            mobile.includes(filter)
+          email.includes(filter) ||
+          mobile.includes(filter)
             ? ""
             : "none";
       });
@@ -90,16 +90,34 @@ document.addEventListener("DOMContentLoaded", function () {
   clientsTableBody.addEventListener("click", function (event) {
     if (event.target.classList.contains("delete-client")) {
       const clientId = event.target.getAttribute("data-client-id");
+      debugger;
       if (confirm("Are you sure you want to delete this client?")) {
-        deleteClient(clientId);
+        deleteClient(clientId, event.target.closest('tr'));
       }
     }
   });
 
-  // Delete client function (can be extended with AJAX call to backend)
-  function deleteClient(clientId) {
-    console.log("Deleting client with ID:", clientId);
-    // Example: You can make an AJAX call here to delete the client from the backend
+  // Delete client function with AJAX call to backend
+  function deleteClient(clientId, row) {
+    debugger;
+    $.ajax({
+      url: '/Members/DeleteClient', // Replace with your actual delete endpoint
+      type: 'POST',
+      data: { clientId: clientId }, // Send the clientId to the server
+      success: function (response) {
+        if (response.success) {
+          row.remove(); // Remove the row from the table
+          alert('Client deleted successfully.');
+          updateClientCount(); // Update the client count
+          updateSelectAllCheckbox(); // Update the select all checkbox state
+        } else {
+          alert('Error: ' + response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        alert('An error occurred while deleting the client.');
+      }
+    });
   }
 
   // Initialize
